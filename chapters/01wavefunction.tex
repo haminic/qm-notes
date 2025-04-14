@@ -1,18 +1,21 @@
 \chapter{ฟังก์ชันคลื่น}
 
-\section{สถิติและความน่าจะเป็น}
+\section{ฟังก์ชันคลื่น}
 
-\subsection{ฟังก์ชันคลื่น}
+\subsection{ฟังก์ชันคลื่นและสมการ Schrödinger}
 
 ในกลศาสตร์ดั้งเดิม เราจะอธิบายอนุภาคหนึ่ง ๆ ด้วยตำแหน่งและโมเมนตัม แต่ในกลศาสตร์ควอนตัม เราจะใช้สิ่งที่เรียกว่า\emph{ฟังก์ชันคลื่น} (\emph{wavefunction}: $\Psi(x, t)$ ในหนึ่งมิติ) ซึ่งมีโคโดเมนเป็น $\CC$
 
 การเปลี่ยนแปลงของตำแหน่งและโมเมนตัมเมื่อเวลาผ่านไปในกลศาสตร์ดั้งเดิมจะถูกอธิบายด้วยกฎของนิวตัน แต่ในกลศาสตร์ควอนตัม เราจะอธิบายวิวัฒนาการของฟังก์ชันคลื่นด้วย\emph{สมการ Shrödinger}:
 \begin{lawbox}{สมการ Shrödinger}
-    อนุภาคที่มีฟังก์ชันคลื่น $\Psi$ จะมีการวิวัฒนาการเป็นไปตามสมการ
+    อนุภาคที่มีฟังก์ชันคลื่น $\Psi$ จะมีวิวัฒนาการเป็นไปตามสมการ
     \begin{equation}
-        i\hbar\pdv{\Psi}{t} = -\frac{\hbar^2}{2m}\pdv[2]{\Psi}{x} + V\Psi\label{1shrodinger}
+        i\hbar\pdv{\Psi}{t} = -\frac{\hbar^2}{2m}\pdv[2]{\Psi}{x} + V\Psi\label{1schrodinger}
     \end{equation}
 \end{lawbox}
+เมื่อ $\hbar = h/2\pi \approx \qty{1.055e-34}{J.s}$ คือ\emph{ค่าคงที่ของ Planck แบบลดรูป} (และ $h \approx \qty{6.626e-34}{J.s}$ คือ\emph{ค่าคงที่ของ Planck})
+
+\section{ตำแหน่ง}
 
 \subsection{การวัดตำแหน่งและการ Normalize}
 
@@ -22,14 +25,79 @@
 \end{ieqbox}
 โดยเมื่อมีการวัดเกิดขึ้นแล้ววัดได้ตำแหน่ง $x=d$ ที่ $t=0$ ฟังก์ชันคลื่นจะ\emph{ยุบตัว} (\emph{collapse}) ให้ในครั้งถัดไป ถ้าวัดตำแหน่งของอนุภาคทันทีหลังจากการวัดครั้งแรก ก็จะวัดได้ตำแหน่งเดิม หรือก็คือจะได้ว่า $\Psi$ ใหม่จะมีปริเวณที่ $\abs{\Psi} \neq 0$ ที่เดียวคือที่ $x=d$ เป็น $\infty$ 
 
-สังเกิตว่าจาก (\ref{1position}) ถ้าอยากให้ $\abs{\Psi(x, t)}^2$ มีความหมายเชิงสถิติ เราจะต้องทำให้การอินทิเกรตฟังก์ชันนี้ทั่วทุกบริเวณจะต้องเป็น $1$ ซึ่งเรียกว่าเป็นการ \emph{normalize} ฟังก์ชันคลื่น:
+สังเกิตว่าจาก (\ref{1position}) ถ้าอยากให้ $\abs{\Psi(x, t)}^2$ มีความหมายเชิงสถิติ เราจะต้องทำให้การอินทิเกรตฟังก์ชันนี้ทั่วทุกบริเวณเป็น $1$ ซึ่งเรียกว่าเป็นการ \emph{normalize} ฟังก์ชันคลื่น:
 \begin{eqbox}{เงื่อนไขการ Normalize}
-    \int_{-\infty}^\infty \abs{\Psi(x, t)}^2 \odif{x} = 1 \label{1normalize}
+    \infint\abs{\Psi(x, t)}^2 \odif{x} = 1 \label{1normalize}
 \end{eqbox}
-โดยเราสามารถทำเช่นนี้ได้กับทุก ๆ ฟังก์ชันคลื่นโดยการคูณด้วยค่าคงที่เข้าไป (จริง ๆ แล้วยังมีฟังก์ชันที่ทำให้อินทิกรัลลู่ออกที่ไม่สามารถ normalize ได้ แต่เราจะสมมติว่าฟังก์ชันคลื่นเหล่านั้นไม่สามารถพบได้หรือ \emph{non-physical}) และเมื่อ normalize แล้ว การวิวัฒนาการของฟังก์ชันคลื่นจะไม่ทำให้อินทิกรัลใน (\ref{1normalize}) เปลี่ยนค่าซึ่งพิสูจน์ต่อไปนี้
+หมายเหตุ: \emph{จะนิยามให้ $\infint$ เป็นการอินทิเกรตทั่วทุกบริเวณ}
+
+โดยเราสามารถทำเช่นนี้ได้กับทุก ๆ ฟังก์ชันคลื่นโดยการคูณด้วยค่าคงที่เข้าไป (จริง ๆ แล้วยังมีฟังก์ชันที่ทำให้อินทิกรัลลู่ออกที่ไม่สามารถ normalize ได้ แต่เราจะสมมติว่าฟังก์ชันคลื่นเหล่านั้นไม่สามารถพบได้หรือ \emph{non-physical} โดยจากเงื่อนไขว่าทุก ๆ ฟังก์ชันคลื่นสามารถ normalize ได้ทำให้ $\abs{\Psi} \sim o(1/\sqrt{x})$ ด้วยที่ $\infty$ เพราะมิฉะนั้นอินทิกรัลจะลู่ออก) และเมื่อ normalize แล้ว ยังได้อีกว่าวิวัฒนาการของฟังก์ชันคลื่นจะไม่ทำให้อินทิกรัลใน (\ref{1normalize}) เปลี่ยนค่าซึ่งพิสูจน์ได้ดังต่อไปนี้
 \begin{eqbox}{บทตั้ง}
-    \odv{}{t} \int_{-\infty}^\infty \abs{\Psi(x, t)}^2 \odif{x} = 0
+    \odv{}{t} \infint \abs{\Psi(x, t)}^2 \odif{x} = 0
 \end{eqbox}
 \begin{proof}
-    เริมจากการหา
+    เริ่มจากการหา $\pdv{}{t}\abs{\Psi}^2$:
+    \begin{equation}
+        \pdv{}{t}\abs{\Psi}^2 = \pdv{}{t}\Psi^*\Psi = \Psi^*\pdv{\Psi}{t} + \pdv{\Psi^*}{t}\Psi \tag{$\star$}\label{1normproof1}
+    \end{equation} 
+    แต่จากสมการ Schrödinger (\ref{1schrodinger}) จะได้
+    \begin{align*}
+        \pdv{\Psi}{t} &= \frac{i\hbar}{2m}\pdv[2]{\Psi}{x} - \frac{i}{\hbar}V\Psi\\
+        \pdv{\Psi^*}{t} &= -\frac{i\hbar}{2m}\pdv[2]{\Psi^*}{x} + \frac{i}{\hbar}V\Psi^*
+    \end{align*}
+    นำไปแทนใน (\ref{1normproof1}) จะได้
+    \begin{align}
+        \pdv{}{t}\abs{\Psi}^2 &= \Psi^*\ab(\frac{i\hbar}{2m}\pdv[2]{\Psi}{x} - \frac{i}{\hbar}V\Psi) + \Psi\ab(-\frac{i\hbar}{2m}\pdv[2]{\Psi^*}{x} + \frac{i}{\hbar}V\Psi^*) \notag\\
+        &= \frac{i\hbar}{2m}\ab(\Psi^*\pdv[2]{\Psi}{x} - \pdv[2]{\Psi^*}{x}\Psi)\notag\\
+        &= \frac{i\hbar}{2m}\pdv{}{x}\ab(\Psi^*\pdv{\Psi}{x} - \pdv{\Psi^*}{x}\Psi)\label{1normproof2}
+    \end{align}
+    ดังนั้น
+    \[
+    \odv{}{t}\infint\abs{\Psi}^2\odif{x} = \infint\pdv{}{t}\abs{\Psi}^2\odif{x} = \frac{i\hbar}{2m}\infint \pdv{}{x}\ab(\Psi^*\pdv{\Psi}{x} - \pdv{\Psi^*}{x}\Psi)\odif{x} = 0
+    \]
+    (เพราะ $\Psi$ ที่ $\infty$ ต้องเป็น $0$ มิฉะนั้นจะไม่สามารถ normalize ได้) ตามต้องการ
 \end{proof}
+
+\section{โมเมนตัม}
+
+เมื่อเวลาผ่านไป ฟังก์ชันคลื่น $\Psi$ จะวิวัฒน์ไปเรื่อย ๆ ตามสมการ (\ref{1schrodinger}) ก็จะทำให้ $\avg{x}$ เปลี่ยนไปตามเวลาด้วย เราจึงอาจจะอยากทราบ ``ความเร็ว'' ของอนุภาคนี้:
+\begin{align*}
+    \odv{\avg{x}}{t} = \infint \pdv{}{t}\ab(x\abs{\Psi}^2) \odif{x} &= \infint x \pdv{}{t}\abs{\Psi}^2 \odif{x} \\
+    &\equal*{\text{(\ref{1normproof2})}}\,\frac{i\hbar}{2m} \infint x\pdv{}{x}\ab(\Psi^*\pdv{\Psi}{x} - \pdv{\Psi^*}{x}\Psi)\odif{x}\\
+    &\equal*{\txt{IBP}}\,\frac{i\hbar}{2m}\cancel{\ab(\eval{x\ab(\Psi^*\pdv{\Psi}{x} - \pdv{\Psi^*}{x}\Psi)}_{-\infty}^\infty)} - \infint \ab(\Psi^*\pdv{\Psi}{x} - \pdv{\Psi^*}{x}\Psi) \odif{x}\\
+    &= -\frac{i\hbar}{2m} \infint \ab(\Psi^*\pdv{\Psi}{x} - \pdv{\Psi^*}{x}\Psi)\odif{x}\\
+    &\equal*{\txt{IBP}}\, -\frac{i\hbar}{m}\infint\Psi^*\pdv{\Psi}{x}\odif{x}
+\end{align*}
+โดยเราจะเรียกอนุพันธ์นี้ว่าเป็น\emph{ค่าคาดหมายของความเร็ว} $\avg{v}$ และจะได้โมเมนตัม
+\begin{ieqbox}{ค่าคาดหมายของโมเมนตัม}
+    \avg{p} = m\odv{\avg{x}}{t} = -i\hbar\infint\ab(\Psi^*\pdv{\Psi}{x})\odif{x}
+\end{ieqbox}
+
+สังเกตว่าค่าคาดหมายของตำแหน่งและโมเมนตัมอยู่ในรูปคล้าย ๆ กันคือเป็นอินทิกรัลทั่วทุกบริเวณของ $\Psi^*$ คูณกับการกระทำบางอย่างกับฟังก์ชันคลื่น $\Psi$ เราจึงนิยาม\emph{โอเปอเรเตอร์}ตำแหน่ง ($\hat{x}$) และโมเมนตัม ($\hat{p}$):
+\begin{defbox}{โอเปอเรเตอร์ตำแหน่ง (ในหนึ่งมิติ)}
+    \begin{equation}
+        \hat{x} \equiv x
+    \end{equation}
+\end{defbox}
+\begin{defbox}{โอเปอเรเตอร์โมเมนตัม (ในหนึ่งมิติ)}
+    \begin{equation}
+        \hat{p} \equiv -i\hbar\pdv{}{x}
+    \end{equation}
+\end{defbox}
+
+เราสามารถหาโอเปอเรเตอร์ของค่าทางกลศาสตร์ต่าง ๆ (เช่น $Q(x, p)$) ได้โดยการนำโอเปอเรเตอร์ $\hat{p}$ และ $\hat{x}$ มาประกอบกัน จึงจะตั้งข้อสมมติไปก่อนว่า
+\begin{ieqbox}{การหาค่าคาดหมายสำหรับค่าทางกลศาสตร์}
+    \avg{Q(x, p)} = \infint \Psi^*\hat{Q}\Psi\odif{x} = \infint \Psi^*\ab\big(Q(\hat{x}, \hat{p}))\Psi\odif{x}
+\end{ieqbox}
+
+\section{หลักความไม่แน่นอนของ Heisenberg}
+
+ในคลื่นเชือกปกติ ถ้าเราสั่นมันไห้มีความยาวคลื่นที่แน่นอน เราจะไม่สามารถตำแหน่งของคลื่นได้ชัดเจน แต่ในทางกลับกัน ถ้าเราสั่นมันให้เกิดลูกคลื่นลูกเดียวที่มีตำแหน่งแน่นอน เราจะไม่สามารถหาความยาวคลื่นได้ ฟังก์ชันคลื่นก็เป็นเช่นเดียวกัน โดยโมเมนตัมกับความยาวคลื่นมีความสัมพันธ์กันด้วยสูตร\emph{ความยาวคลื่น De Broglie}:
+\begin{eqbox}{ความยาวคลื่น De Broglie}
+    p = \frac{h}{\lambda} = \frac{2\pi\hbar}{\lambda}
+\end{eqbox}
+และ Heisenberg ก็ได้พบว่าความไม่แน่นอนของความยาวคลื่น (โมเมนตัม) และตำแหน่งนั้น มีขอบเขตล่างดังนี้:
+\begin{ieqbox}{หลักความไม่แน่นอนของ Heisenberg}
+    \Delta x\Delta p = \sigma_x\sigma_p\geq \frac{\hbar}{2}
+\end{ieqbox}
+(ซึ่งจะพิสูจน์ในบทที่ 3)
