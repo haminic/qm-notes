@@ -4,7 +4,7 @@
 
 This repository contains the source code of my personal notes (in Thai) on **Quantum Mechanics**, written in $\LaTeX$. These notes are a product of my study of *"Introduction to Quantum Mechanics"* by David J. Griffiths, supplemented with other materials I see fit. I've also included the compiled PDF file [here](main.pdf) for ease of access, but note that it may not always be the most up-to-date version.
 
-These notes are a **work in progress** and meant for **personal use**, so it is *very* incomplete and may contain errors, omissions, or unclear explanations. Please don’t rely on them as an authoritative source (heck, right now I've only written quite little content).
+These notes are a **work in progress** and meant for **personal use**, so it is *very* incomplete and may contain errors, omissions, or unclear explanations. Please don’t rely on them as an authoritative source (in fact, right now I've only written quite little content).
 
 This repository is public only for convenience, so I'd prefer it not be forked. If you’d like to suggest improvements or corrections and you know me, feel free to reach out.
 
