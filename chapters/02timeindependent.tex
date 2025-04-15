@@ -4,7 +4,7 @@
 
 \subsection{การแยกตัวแปร}
 
-พิจารณาการแก้สมการ Schrödinger โดยการแยกตัวแปร (โดยเช่นเคย เมื่อแก้สมการออกมาแล้วเราจะสามารถสร้างคำตอบในรูปทั่วไปได้โดยการนำชุดของคำตอบทั้งหมดมารวมกัน เพราะสมการ Schrödinger เป็นสมการเชิงเส้น) โดยถ้าให้
+พิจารณาการแก้สมการ Schrödinger โดยการแยกตัวแปร (โดยเช่นเคย เมื่อแก้สมการออกมาแล้วเราจะสามารถสร้างคำตอบในรูปทั่วไปได้โดยการนำชุดของคำตอบทั้งหมดมารวมกัน เพราะสมการ Schrödinger เป็นสมการเชิงเส้น และปรากฏว่าคำตอบทั้งหมดที่ได้เป็นเซตของฟังก์ชันที่\emph{สมบูรณ์}และ\emph{ตั้งฉากกัน}) โดยถ้าให้
 \[
 \Psi(x, t) = \psi(x)\,\varphi(t)
 \]
@@ -27,12 +27,12 @@
 
 ฟังก์ชันคลื่นที่เป็นผลเฉลยแบบแยกตัวแปรได้
 \begin{equation}
-    \Psi(x, t) = \psi(x) e^{-iEt/\hbar}
+    \Psi(x, t) = \psi(x)\,e^{-iEt/\hbar}
 \end{equation}
 จะเรียกว่าเป็น\emph{สภาวะนิ่ง} (\emph{stationary state}) เพราะสังเกตว่า \emph{observable} $Q(x, p)$ ใด ๆ ไม่ขึ้นกับเวลา:
 \begin{align*}
     \avg{Q} &= \infint \Psi^*\hat{Q}\Psi \odif{x}\\
-    &= \infint \psi^*\cancel{e^{-iEt/\hbar}}\hat{Q}\psi \cancel{e^{iEt/\hbar}} \odif{x}\\
+    &= \infint \psi^*\cancel{e^{iEt/\hbar}}\hat{Q}\psi \cancel{e^{-iEt/\hbar}} \odif{x}\\
     &= \infint \psi^*\hat{Q}\psi \odif{x}
 \end{align*}
 (โอเปอเรเตอร์ $\hat{Q}$ ขึ้นอยู่กับแค่ $\hat{x}$ และ $\hat{p}$ ซึ่งไม่ขึ้นกับเวลาทั้งคู่)
@@ -67,3 +67,111 @@ H(x, p) = \frac{p^2}{2m} + V(x)
     \sigma_H^2 = \avg{H^2} + \avg{H}^2 = E^2 - E^2 = 0\tag{$\star$2}\label{2energyproof2}
 \end{equation}
 จาก (\ref{2energyproof1}) และ (\ref{2energyproof2}) จะได้ว่าคำตอบเหล่านี้อยู่ในสภาวะที่มีพลังงานแน่นอน (definite energy)
+
+ต่อมา เรามาดูสมบัติต่าง ๆ ของพลังงานผลเฉลยสมการ (\ref{2timeindepschrodinger})
+
+\begin{corbox}{บทตั้ง}
+    ค่าพลังงาน $E$ ที่เป็นไปได้เป็นจำนวนจริง
+\end{corbox}
+\begin{proof}
+    สมมติ $E \equiv E_0 + i\Gamma$ จะได้ว่า
+    \[
+    \Psi(x, t) = \psi(x)\,e^{-i(E_0 + i\Gamma)t/\hbar} = \psi(x)\,e^{-iE_0t/\hbar + \Gamma t/\hbar}
+    \]
+    ดังนั้น
+    \[
+    \infint \abs{\Psi}^2\odif{x} = \infint \Psi^*\Psi\odif{x} = e^{2\Gamma t/\hbar}\infint \psi^*(x)\,\psi(x)\odif{x}
+    \]
+    ซึ่งต้องเท่ากับ $1$ ทุก ๆ $t$ ดังนั้น $\Gamma$ จึงต้องเท่ากับ $0$ ทำให้ $E$ ต้องเป็นจำนวนจริง ตามต้องการ
+\end{proof}
+
+\begin{corbox}{บทตั้ง}
+    เราสามารถสร้าง $\psi(x)$ ที่เป็นฟังก์ชันจริงได้เสมอ ไม่ว่า $E$ จะเป็นค่าเท่าใดก็ตาม
+\end{corbox}
+\begin{proof}
+    สมมติ $\psi$ เป็นคำตอบของสมการ (\ref{2timeindepschrodinger}) เมื่อใส่ conjugate ไปทั้งสองฝั่งจะได้ว่า $\psi^*$ ก็เป็นผลเฉลย ดังนั้น $\psi + \psi^*$ เป็นผลเฉลยด้วย (เพราะสมการ Schrödinger เป็นสมการเชิงเส้น) ซึ่งเป็นผลเฉลยจริง ตามต้องการ
+\end{proof}
+ดังนั้นในการนำ $\psi$ มารวมกันจะตั้งข้อสมมติเลยว่า $\psi$ เป็นฟังก์ชันจริง
+
+\begin{corbox}{บทตั้ง}
+    ค่าพลังงาน $E$ ที่เป็นไปได้จะต้องมีค่ามากกว่า $V_\txt{min}$
+\end{corbox}
+\begin{proof}
+    สมมติว่า $E \leq V_\txt{min}$ และย้ายข้างสมการ (\ref{2timeindepschrodinger}) จะได้
+    \[
+    \odv[2]{\psi}{x} = \frac{2m}{\hbar^2}\ab(V(x) - E)\,\psi
+    \]
+    เนื่องจาก $V(x) - E \geq V_\txt{min} - E \geq 0$ จะได้ว่าเครื่องหมายของ $\odv[2]{\psi}{x}$ และ $\psi$ จะต้องตรงกันเสมอ ต่อมาจะพิสูจน์ว่าฟังก์ชันที่มีเงื่อนไขดังกล่าวไม่สามารถ normalize ได้ 
+    
+    สังเกตว่าถ้ามีค่า $x_0\in\RR$ ที่ทำให้ $\psi(x_0) > 0$ และ $\odv{\psi}{x}(x_0) = m \neq 0$ ในกรณี $m > 0$ จะได้ว่า $\psi$ จะโตขึ้นเรื่อย ๆ เมื่อ $x\to\infty$ และกรณี $m < 0$ จะได้ $\psi$ จะโตขึ้นเรื่อย ๆ เมื่อ $x\to -\infty$ ซึ่งเห็นชัดว่าไม่สามารถ normalize ได้ (กรณี $\psi(x_0) < 0$ ทำคล้ายกัน) จึงเหลื่อแค่กรณี $\psi(x)$ เป็นฟังก์ชันคงตัว ซึ่งก็ไม่สามารถ normalize ได้เช่นกัน
+\end{proof}
+
+\subsection{ผลเฉลยรวม}
+
+เมื่อแก้สมการ เราจะมีชุดคำตอบของค่าพลังงาน $E$ ที่ ``เป็นไปได้'' โดยให้เป็นลำดับ $(E_n)_{n=1}^\infty$ และแต่ละค่า $E_n$ ก็จะมีคำตอบ $\psi_n$ ที่คู่กับพลังงานค่านั้น สุดท้ายแล้วเมื่อนำมารวมกัน จะได้ว่า
+\begin{ieqbox}{ผลเฉลยของสมการ Schrödinger ในหนึ่งมิติ}
+    \Psi(x, t) = \sum_{n=1}^\infty c_n\psi_n(x)e^{-iE_nt/\hbar}\label{2schrodingersol}
+\end{ieqbox}
+หมายเหตุ: \emph{เราจะนำชุดของ $(\psi_n)_{n=1}^\infty$ ให้เป็นเซตที่เป็นฟังก์ชันจริงและ orthonormal ($\infint\psi_m\psi_n\odif{x} = \delta_{mn}$ เมื่อ $\delta$ คือ Kronecker delta) ซึ่งจะพิสูจน์ว่าสามารถทำได้เสมอในบทถัดไป}
+
+พิจารณาเงื่อนไขในการ normalize $\Psi$ ที่ได้ใน (\ref{2schrodingersol}):
+\begin{equation}
+    \infint \Psi^*\Psi\odif{x} = \sum_{m=1}^\infty\sum_{n=1}^\infty\infint c_m^*c_n\psi_m\psi_n\odif{x} = \sum_{m=1}^\infty\sum_{n=1}^\infty c_m^*c_n\delta_{mn} = \sum_{n=1}^\infty\,\abs{c_n}^2 = 1
+\end{equation}
+และจะได้ค่าคาดหมายของพลังงาน:
+\begin{equation}
+    \avg{H} = \infint\Psi^*\hat{H}\Psi\odif{x} = \sum_{m=1}^\infty\sum_{n=1}^\infty\infint c_m^*c_nE_n\psi_m\psi_n\odif{x} = \sum_{n=1}^\infty\,\abs{c_n}^2E_n
+\end{equation}
+โดยขนาดสัมประสิทธิ์ $\abs{c_n}^2$ นี้มีสมบัติคือเป็นความน่าจะเป็นที่จะวัดพลังงานได้ $E_n$ (จะพิสูจน์อีกที)
+
+\section{บ่อศักย์อนันต์}
+
+\subsection{บ่อศักย์อนันต์}
+
+กำหนดให้ในบริเวณหนึ่งมี
+\begin{equation}
+    V(x) = 
+    \begin{cases}
+        0\quad &\text{เมื่อ $x\in\ab[0, a]$}\\
+        \infty &\text{เมื่อ $x\notin\ab[0, a]$}
+    \end{cases}
+\end{equation}
+จะได้ว่าสำหรับ $x\in\ab[0, a]$:
+\begin{align*}
+    -\frac{\hbar^2}{2m}\odv[2]{\psi}{x} &= E\psi\\
+    \odv[2]{\psi}{x} + k^2\psi &= 0
+\end{align*}
+เมื่อ $k = \sqrt{2mE}/\hbar$ เป็นจำนวนจริง (เพราะจากที่พิสูจน์ไป $E$ ในกรณีนี้ไม่มีทางน้อยกว่า $V_\txt{min} = 0$) ก็จะแก้ได้ว่า
+\[
+\psi(x) = A\sin kx + B\cos kx
+\]
+โดยเรามีเงื่อนไขที่ขอบเขต $\psi(0) = 0$ และ $\psi(a) = 0$ เพราะ $\psi$ ต้องต่อเนื่อง (พิสูจน์ทีหลัง) ดังนั้นเมื่อแทน $x = 0$ จะได้ $B = 0$ และเมื่อแทน $x = a$ จะได้ $A = 0$ หรือ $ka \in \{0, \pm\pi, \pm 2\pi, \pm 3\pi, \dots\}$ แต่ $A$ และ $k$ ห้ามเป็น $0$ เพราะมิฉะนั้นฟังก์ชันคลื่น $\Psi(x, t) = \psi(x)\,e^{-iEt/\hbar}$ จะไม่สามารถ normalize ได้
+
+อย่างน่าแปลกใจ เราได้เงื่อนไขของ $E$ ที่เป็นไปได้จากการแก้สมการ โดยเนื่องจากค่า $k$ ที่เป็นไปได้คือ
+\[
+k = \frac{n\pi}{a}\qq*{,}n\in\ZZ^+
+\]
+(เพราะถ้า $n$ เป็นลบเราสามารถ absorb เข้าค่าคงที่ $A$ ได้และ $n\neq 0$ เพราะ $\Psi$ จะไม่สามารถ normalize ได้) จะได้ว่า $E$ ที่เป็นไปได้คือ
+\begin{equation}
+    E = \frac{\hbar^2k^2}{2ma^2} = \frac{n^2\pi^2\hbar^2}{2ma^2}\qq*{,}n\in\ZZ^+
+\end{equation}
+ก็จะได้
+\begin{eqbox}{พลังงานที่เป็นไปได้ในบ่อศักย์อนันต์}
+    E_n =  \frac{n^2\pi^2\hbar^2}{2ma^2}\qq*{,}n\in\ZZ^+
+\end{eqbox}
+ต่อมาหาชุดของ $(\phi_n)_{n=1}^\infty$ ที่ orthonormal (orthogonal จะสมมติเลยว่าจริงแต่จะหาแค่ $A$ ที่ทำให้ $\psi$ ถูก normalize):
+\[
+\int_0^a A^2\sin^2\ab(kx)\odif{x} = A^2\ab(\frac{a}{2}) = 1
+\] 
+ดังนั้นได้ $A = \sqrt{2/a}$ (ถ้า $A$ ติดลบจะถูก absorb ได้เมื่อหาสัมประสิทธิ์ $c_n$ อยู่ดี จึงให้เป็นบวก) ก็จะได้
+\begin{eqbox}{ชุดของฟังก์ชันคลื่น (ที่ไม่ขึ้นกับเวลา) ในบ่อศักย์อนันต์}
+    \psi_n\ab(x) = \sqrt{\frac{2}{a}}\sin\ab(\frac{n\pi}{a}x)\qq*{,}n\in\ZZ^+
+\end{eqbox}
+เราจะเรียกสถานะที่มีพลังงานตำที่สุด ($n = 1$) ว่าเป็น\emph{สถานะพื้น} (\emph{ground state}) และสถานะอื้นว่า\emph{สถานะกระตุ้น} (\emph{excited state}) และเราจะสามารถหาสัมประสิทธิ์ $c_n$ สำหรับ $\Psi(x, t)$ ใด ๆ (โดยที่มีสภาวะขอบเขต $\Psi(x, 0)$) ได้โดย
+\begin{equation}
+    c_n = \infint \Psi(x, 0)\,\psi_n(x)\odif{x} = \sqrt{\frac{2}{a}}\int_0^a \sin\ab(\frac{n\pi}{a}x)\,\Psi(x, 0)\odif{x}
+\end{equation}
+
+\section{Harmonic Oscillator เชิงควอนตัม}
+
+\subsection{Harmonic Oscillator}
