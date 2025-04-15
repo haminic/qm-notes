@@ -3,3 +3,67 @@
 \section{สมการ Schrödinger ที่ไม่ขึ้นกับเวลา}
 
 \subsection{การแยกตัวแปร}
+
+พิจารณาการแก้สมการ Schrödinger โดยการแยกตัวแปร (โดยเช่นเคย เมื่อแก้สมการออกมาแล้วเราจะสามารถสร้างคำตอบในรูปทั่วไปได้โดยการนำชุดของคำตอบทั้งหมดมารวมกัน เพราะสมการ Schrödinger เป็นสมการเชิงเส้น) โดยถ้าให้
+\[
+\Psi(x, t) = \psi(x)\,\varphi(t)
+\]
+เมื่อแทนใน (\ref{1schrodinger}) จะได้
+\begin{align*}
+    i\hbar\pdv{\Psi}{t} &= -\frac{\hbar^2}{2m} \pdv[2]{\Psi}{x} + V\Psi\\
+    i\hbar\psi\odv{\varphi}{t} &= -\frac{\hbar^2}{2m}\varphi\odv[2]{\psi}{x} + V\psi\varphi\\
+    i\hbar\frac{1}{\varphi}\odv{\varphi}{t} &= -\frac{\hbar^2}{2m}\frac{1}{\psi}\odv[2]{\psi}{x} + V
+\end{align*}
+ถ้า $V$ เป็นฟังก์ชันที่ไม่ขึ้นกับเวลาจะได้ว่าฝั่งซ้ายและขวาต้องเท่ากัน สมมติเท่ากับ $E$ ก็จะได้ว่า
+\begin{align}
+    i\hbar\frac{1}{\varphi}\odv{\varphi}{t} &= E\notag\\
+    \int\frac{1}{\varphi}\odif{\varphi} &= -\frac{iE}{\hbar}\int\odif{t}\notag\\
+    \varphi(t) &= e^{-iEt/\hbar}
+\end{align}
+(โดยจะละค่าคงที่ไว้เพราะ absorb ไว้ในผลเฉลยของ $\psi$) และอีกสมการหนึ่งเราจะเรียกว่าเป็น\emph{สมการ Schrödinger ที่ไม่ขึ้นกับเวลา}: 
+\begin{ieqbox}{สมการ Schrödinger ที่ไม่ขึ้นกับเวลา}
+    -\frac{\hbar^2}{2m}\odv[2]{\psi}{x} + V\psi = E\psi\label{2timeindepschrodinger}
+\end{ieqbox}
+
+ฟังก์ชันคลื่นที่เป็นผลเฉลยแบบแยกตัวแปรได้
+\begin{equation}
+    \Psi(x, t) = \psi(x) e^{-iEt/\hbar}
+\end{equation}
+จะเรียกว่าเป็น\emph{สภาวะนิ่ง} (\emph{stationary state}) เพราะสังเกตว่า \emph{observable} $Q(x, p)$ ใด ๆ ไม่ขึ้นกับเวลา:
+\begin{align*}
+    \avg{Q} &= \infint \Psi^*\hat{Q}\Psi \odif{x}\\
+    &= \infint \psi^*\cancel{e^{-iEt/\hbar}}\hat{Q}\psi \cancel{e^{iEt/\hbar}} \odif{x}\\
+    &= \infint \psi^*\hat{Q}\psi \odif{x}
+\end{align*}
+(โอเปอเรเตอร์ $\hat{Q}$ ขึ้นอยู่กับแค่ $\hat{x}$ และ $\hat{p}$ ซึ่งไม่ขึ้นกับเวลาทั้งคู่)
+
+\subsection{Hamiltonian}
+
+ในกลศาสตร์ดั้งเดิมเราจะเรียกพลังงานรวมของระบบ (พลังงานจลน์บวกพลังงานศักย์) ว่าเป็น \emph{Hamiltonian} $H$ โดยที่
+\[
+H(x, p) = \frac{p^2}{2m} + V(x)
+\]
+เราจึงสร้าง\emph{โอเปอเรเตอร์ Hamiltonian} ได้ดังนี้:
+\begin{defbox}{โอเปอเรเตอร์ Hamiltonian}
+    \begin{equation}
+        \hat{H} \equiv \frac{\hat{p}^2}{2m} + V(x) = -\frac{\hbar^2}{2m}\pdv[2]{}{x} + V(x)
+    \end{equation}
+\end{defbox}
+ก็จะได้สมการ (\ref{2timeindepschrodinger}) อยู่ในรูป
+\begin{eqbox}{สมการ Schrödinger ที่ไม่ขึ้นกับเวลาในรูป Hamiltonian}
+    \hat{H}\psi = E\psi
+\end{eqbox}
+
+พิจารณาการหาค่าคาดหมายและส่วนเบี่ยงเบนมาตรฐานของ $H$ ด้วยฟังก์ชันคลื่นที่แยกตัวแปรได้:
+\begin{equation}
+    \avg{H} = \infint \psi^*\hat{H}\psi\odif{x} = \infint \psi^* E\psi\odif{x} = E \infint \abs{\psi}^2 \odif{x} = E\tag{$\star$1}\label{2energyproof1}
+\end{equation}
+และ
+\[
+\avg{H^2} = \infint \psi^*\hat{H}\psi\odif{x} = E^2\infint\abs{\psi}^2\odif{x} = E^2
+\]
+ดังนั้น
+\begin{equation}
+    \sigma_H^2 = \avg{H^2} + \avg{H}^2 = E^2 - E^2 = 0\tag{$\star$2}\label{2energyproof2}
+\end{equation}
+จาก (\ref{2energyproof1}) และ (\ref{2energyproof2}) จะได้ว่าคำตอบเหล่านี้อยู่ในสภาวะที่มีพลังงานแน่นอน (definite energy)
