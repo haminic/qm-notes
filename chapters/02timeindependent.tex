@@ -175,3 +175,139 @@ k = \frac{n\pi}{a}\qq*{,}n\in\ZZ^+
 \section{Harmonic Oscillator เชิงควอนตัม}
 
 \subsection{Harmonic Oscillator}
+
+ในกลศาาสตร์ดั้วเดิม ศักย์ของระบบ \emph{simple harmonic oscillator} กำหนดด้วย
+\[
+V(x) = \frac{1}{2}kx^2
+\]
+หรือ
+\[
+V(x) = \frac{1}{2}m\omega^2x^2
+\]
+ดังนั้นเราจะพิจารณาศักย์เดียวกันในกลศาาสตร์ควอนตัม:
+\begin{ieqbox}{สมการ Schrödinger ของ Harmonic Oscillator}
+    -\frac{\hbar^2}{2m} \odv[2]{\psi}{x} + \frac{1}{2}m\omega^2x^2\psi = \hat{H}\psi = E\psi\label{2harmonicschrodinger}
+\end{ieqbox}
+
+โดยก่อนที่เราจะแก้สมการด้านบน เราจะนิยาม \emph{commutator} ของโอเปอเรเตอร์ $\hat{A}$ และ $\hat{B}$ ดังนี้:
+\begin{defbox}{ Commutator}
+    \begin{equation}
+        [\hat{A}, \hat{B}] \equiv \hat{A}\hat{B} - \hat{B}\hat{A}
+    \end{equation}
+\end{defbox}
+คล้ายกับการวัด ``ความไม่สลับที่ไ้ด้'' ของสองโอเปอเรเตอร์ พิจารณา $[\hat{x}, \hat{p}]$:
+\begin{align*}
+    [\hat{x}, \hat{p}]\,f(x) &= \ab(-i\hbar x\odv{}{x} + i\hbar\odv{}{x}x)\,f(x)\\
+    &= -\cancel{i\hbar x\odv{}{x}f(x)} + \cancel{i\hbar x\odv{}{x}f(x)} + i\hbar \,f(x)\\
+    &= i\hbar\,f(x)
+\end{align*}
+ดังนั้น
+\begin{eqbox}{Commutator ของตำแหน่งและโมเมนตัม}
+    [\hat{x}, \hat{p}] = i\hbar
+\end{eqbox}
+
+\subsection{วิธีเชิงพีชคณิต}
+
+พิจารณา
+\[
+\hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2}m\omega^2x^2 = \frac{1}{2m}\ab(\hat{p}^2 + \ab(m\omega x)^2)
+\]
+ลองพยายาม ``แยกตัวประกอบ'' โดยนิยาม
+\begin{defbox}{โอเปอเรเตอร์ขั้นบันได}
+    \begin{equation}
+        \hat{a}_\pm \equiv \frac{1}{\sqrt{2\hbar m\omega}}\ab(\mp i\hat{p} + m\omega x)
+    \end{equation}
+\end{defbox}
+(สัมประสิทธิ์ด้านหน้ามีเพื่อให้จัดรูปสวย ๆ) จะได้ว่า
+\begin{align}
+    \hat{a}_-\hat{a}_+ &= \frac{1}{2\hbar m\omega}\ab(\hat{p}^2 + \ab(m\omega x)^2 -im\omega[\hat{x}, \hat{p}])\notag\\
+    &= \frac{1}{2\hbar m\omega}\ab(\hat{p}^2 + \ab(m\omega x)^2 +\hbar m\omega)\notag\\
+    &= \frac{1}{\hbar\omega}\hat{H} + \frac{1}{2}\label{2ladderproof1}
+\end{align}
+และในทำนองเดียวกัน
+\begin{equation}
+    \hat{a}_+\hat{a}_- = \frac{1}{\hbar\omega}\hat{H} - \frac{1}{2}\label{2ladderproof2}
+\end{equation}
+จาก (\ref{2ladderproof1}) และ (\ref{2ladderproof2}) ก็จะได้
+\begin{equation}
+    [\hat{a}_-, \hat{a}_+] = 1
+\end{equation}
+และสมการ Schrödinger (\ref{2harmonicschrodinger}) จะอยู่ในรูป
+\begin{equation}
+    \hat{H}\psi = \hbar\omega\ab(\hat{a}_\pm\hat{a}_\mp \pm \frac{1}{2})\psi = E\psi
+\end{equation}
+
+พิจารณาคำตอบหนึ่งของสมการ และนำคำตอบนั้นมา operate ด้วย $\hat{a}_+$:
+\begin{align*}
+    \hat{H}\ab(\hat{a}_+\psi) &= \hbar\omega\ab(\hat{a}_+\hat{a}_- + \frac{1}{2})\hat{a}_+\psi = \hat{a}_+\hbar\omega\ab(\hat{a}_-\hat{a}_+ + \frac{1}{2})\psi\\
+    &= \hat{a}_+\hbar\omega\ab(\hat{a}_-\hat{a}_+ - \frac{1}{2} + 1)\psi = \hat{a}_+\ab(\hat{H} + \hbar\omega)\psi\\
+    &=\ab(E + \hbar\omega)\ab(\hat{a}_+\psi)
+\end{align*}
+ซึ่งเป็นคำตอบของสมการ (\ref{2harmonicschrodinger}) ที่มีพลังงาน $E + \hbar\omega$ และในทำนองเดียวกันจะได้ว่า
+\[
+\hat{H}\ab(\hat{a}_-\psi) = \ab(E - \hbar\omega)(\hat{a}_-\psi)
+\]
+ดังนั้นถ้าเรามีคำตอบหนึ่งของ (\ref{2harmonicschrodinger}) เราสามารถหาคำตอบที่มีพลังงานอื่น ๆ ได้:
+\begin{lawbox}{การสร้างคำตอบใหม่ของ Harmonic Oscillator}
+    ถ้ามีคำตอบ $\psi$ ของสมการ (\ref{2harmonicschrodinger}) เราจะสามารถสร้างคำตอบที่มีระดับพลังงานสูงหรือต่ำกว่าได้โดย
+    \begin{equation}
+        \hat{H}\ab(\hat{a}_\pm\psi) = \ab(E \pm \hbar\omega)(\hat{a}_\pm\psi)
+    \end{equation}
+\end{lawbox}
+เราจึงเรียกโอเปอเรเตอร์ $\hat{a}_\pm$ ว่า\emph{โอเปอเรเตอร์ขั้นบันได}
+
+ต่อมาสังเกตว่าเราสามารถสร้างคำตอบที่มีพลังงานลดลงได้เรื่อย ๆ ซึ่งจะขัดแย้งกับที่เคยพิสูจน์ว่า $E > 0$ ดังนั้นจะต้องมี $\psi_0$ สักตัวที่เป็น ``ขั้นบันไดขั้นแรก'' ที่เมื่อใช้ \emph{lowering operator} ($\hat{a}_-$) แล้วจะได้ฟังก์ชันที่ไม่สามารถ normalize ได้:
+\[
+\hat{a}_-\psi_0 = 0
+\]
+(สมมติไปก่อนว่าฟังก์ชันที่ไม่สามารถ normalize ได้นั้นเป็น $0$ ไปเลย) ดังนั้น
+\begin{align*}
+    \cancel{\frac{1}{\sqrt{2\hbar m\omega}}}\ab(\hbar\odv{}{x} + m\omega x)\psi_0 &= 0\\
+    \frac{m\omega}{\hbar}\int x\odif{x} &= -\int\frac{1}{\psi_0}\odif{\psi_0} \\
+    \frac{m\omega}{2\hbar} x^2 + C &= -\log\psi_0 \\
+    \psi_0 &= Ae^{-\frac{m\omega}{2\hbar}x^2}
+\end{align*}
+จาก
+\[
+1 = \infint\psi_0^2\odif{x} = A^2\infint e^{-\frac{m\omega}{\hbar}x^2}\odif{x} = A^2\sqrt{\frac{\pi\hbar}{m\omega}}
+\]
+จะได้ค่าคงที่ที่ทำให้ฟังก์ชันนี้ normalize คือ
+\[
+A = \ab(\frac{m\omega}{\pi\hbar})^{1/4}
+\]
+และพิจารณาพลังงาน ($E_0$) ที่สถานะ $\psi_0$ นี้:
+\[
+\hat{H}\psi_0 = \hbar\omega\ab(\hat{a}_+\hat{a}_- + \frac{1}{2})\psi_0 = \hbar\omega\hat{a}_+\cancel{\ab(\hat{a}_-\psi_0)} + \frac{1}{2}\hbar\omega\psi_0 = \ab(\frac{1}{2}\hbar\omega)\psi_0
+\]
+ก็จะได้พลังงานที่สถานะพื้นนี้เท่ากับ
+\[
+E_0 = \frac{1}{2}\hbar\omega
+\]
+สรุปก็คือ
+\begin{eqbox}{สถานะพื้นของ Harmonic Oscillator}
+    \psi_0(x) = \ab(\frac{m\omega}{\pi\hbar})^{1/4}e^{-\frac{m\omega}{2\hbar}x^2}\qq{และ}E_0 = \frac{1}{2}\hbar\omega
+\end{eqbox}
+หมายเหตู: \emph{คำตอบทั้งหมดของ (\ref{2harmonicschrodinger}) จะต้องมาจากการ operate $\hat{a}_+$ บน $\psi_0$ เพราะทุก ๆ คำตอบที่เราสนใจจะต้องเกิดสถานะพื้นที่มีเงื่อนไข $\hat{a}_-\psi_0 = 0$ เสมอ}
+
+และก็จะได้
+\begin{ieqbox}{พลังงานของ Harmonic Oscillator}
+    E_n = \ab(n + \frac{1}{2})\hbar\omega
+\end{ieqbox}
+
+ต่อมาพิจารณาการหาสัมประสิทธิ์ $A_n$ ของ $\psi_n$ โดยก่อนอื่นจะพิสูจน์ว่า $\hat{a}_-$ และ $\hat{a}_+$ เป็น \emph{adjoint} (หรือ \emph{hermitian conjugate}) ของกันและกัน:
+\begin{eqbox}{บทตั้ง}
+    \infint f^*\ab(\hat{a}_\pm g)\odif{x} = \infint \ab(\hat{a}_\mp f)^* g\odif{x}
+\end{eqbox}
+\begin{proof}
+    เนื่องจาก integration by parts จะได้
+    \[
+    \infint f^*\odv{g}{x}\odif{x} = \cancel{\eval{f^*g}_{-\infty}^\infty} - \infint \ab(\odv{f}{x})^*g\odif{x} = - \infint \ab(\odv{f}{x})^*g\odif{x}
+    \]
+    ดังนั้น
+    \begin{align*}
+        \infint f^*\ab(\hat{a}_\pm g)\odif{x} &= \infint f^* \ab(\frac{1}{\sqrt{2\hbar m\omega}}\ab(\mp \hbar\odv{}{x} + m\omega x))g\odif{x}\\ 
+        &= \infint \ab(\frac{1}{\sqrt{2\hbar m\omega}}\ab(\pm \hbar\odv{}{x} + m\omega x)f)^* g\odif{x}\\
+        &= \infint \ab(\hat{a}_\mp f)^* g\odif{x}
+    \end{align*}
+    ตามต้องการ
+\end{proof}
