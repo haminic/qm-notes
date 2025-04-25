@@ -64,7 +64,7 @@ H(x, p) = \frac{p^2}{2m} + V(x)
 \]
 ดังนั้น
 \begin{equation}
-    \sigma_H^2 = \avg{H^2} + \avg{H}^2 = E^2 - E^2 = 0\tag{$\star$2}\label{2energyproof2}
+    \sigma_H^2 = \avg{H^2} - \avg{H}^2 = E^2 - E^2 = 0\tag{$\star$2}\label{2energyproof2}
 \end{equation}
 จาก (\ref{2energyproof1}) และ (\ref{2energyproof2}) จะได้ว่าคำตอบเหล่านี้อยู่ในสภาวะที่มีพลังงานแน่นอน (definite energy)
 
@@ -103,7 +103,7 @@ H(x, p) = \frac{p^2}{2m} + V(x)
     \]
     เนื่องจาก $V(x) - E \geq V_\txt{min} - E \geq 0$ จะได้ว่าเครื่องหมายของ $\odv[2]{\psi}{x}$ และ $\psi$ จะต้องตรงกันเสมอ ต่อมาจะพิสูจน์ว่าฟังก์ชันที่มีเงื่อนไขดังกล่าวไม่สามารถ normalize ได้ 
     
-    สังเกตว่าถ้ามีค่า $x_0\in\RR$ ที่ทำให้ $\psi(x_0) > 0$ และ $\odv{\psi}{x}(x_0) = m \neq 0$ ในกรณี $m > 0$ จะได้ว่า $\psi$ จะโตขึ้นเรื่อย ๆ เมื่อ $x\to\infty$ และกรณี $m < 0$ จะได้ $\psi$ จะโตขึ้นเรื่อย ๆ เมื่อ $x\to -\infty$ ซึ่งเห็นชัดว่าไม่สามารถ normalize ได้ (กรณี $\psi(x_0) < 0$ ทำคล้ายกัน) จึงเหลื่อแค่กรณี $\psi(x)$ เป็นฟังก์ชันคงตัว ซึ่งก็ไม่สามารถ normalize ได้เช่นกัน
+    สังเกตว่าถ้ามีค่า $x_0\in\RR$ ที่ทำให้ $\psi(x_0) > 0$ และ $\odv{\psi}{x}(x_0) = m \neq 0$ ในกรณี $m > 0$ จะได้ว่า $\psi$ จะโตขึ้นเรื่อย ๆ เมื่อ $x\to\infty$ และกรณี $m < 0$ จะได้ $\psi$ จะโตขึ้นเรื่อย ๆ เมื่อ $x\to -\infty$ ซึ่งเห็นชัดว่าไม่สามารถ normalize ได้ (กรณี $\psi(x_0) < 0$ ทำคล้ายกัน) จึงเหลือแค่กรณี $\psi(x)$ เป็นฟังก์ชันคงตัว ซึ่งก็ไม่สามารถ normalize ได้เช่นกัน
 \end{proof}
 
 \subsection{ผลเฉลยรวม}
@@ -156,7 +156,7 @@ k = \frac{n\pi}{a}\qq*{,}n\in\ZZ^+
     E = \frac{\hbar^2k^2}{2ma^2} = \frac{n^2\pi^2\hbar^2}{2ma^2}\qq*{,}n\in\ZZ^+
 \end{equation}
 ก็จะได้
-\begin{ieqbox}{พลังงานของบ่อศักย์อนั้นต์}
+\begin{ieqbox}{พลังงานของบ่อศักย์อนันต์}
     E_n =  \frac{n^2\pi^2\hbar^2}{2ma^2}\qq*{,}n\in\ZZ^+
 \end{ieqbox}
 ต่อมาหาชุดของ $(\phi_n)_{n=1}^\infty$ ที่ orthonormal (orthogonal จะสมมติเลยว่าจริงแต่จะหาแค่ $A$ ที่ทำให้ $\psi$ ถูก normalize):
