@@ -29,7 +29,7 @@
 \begin{equation}
     \Psi(x, t) = \psi(x)\,e^{-iEt/\hbar}
 \end{equation}
-จะเรียกว่าเป็น\emph{สภาวะนิ่ง} (\emph{stationary state}) เพราะสังเกตว่า \emph{observable} $Q(x, p)$ ใด ๆ ไม่ขึ้นกับเวลา:
+จะเรียกว่าเป็น\emph{สถานะนิ่ง} (\emph{stationary state}) เพราะสังเกตว่า \emph{observable} $Q(x, p)$ ใด ๆ ไม่ขึ้นกับเวลา:
 \begin{align*}
     \avg{Q} &= \infint \Psi^*\hat{Q}\Psi \odif{x}\\
     &= \infint \psi^*\cancel{e^{iEt/\hbar}}\hat{Q}\psi \cancel{e^{-iEt/\hbar}} \odif{x}\\
@@ -156,17 +156,17 @@ k = \frac{n\pi}{a}\qq*{,}n\in\ZZ^+
     E = \frac{\hbar^2k^2}{2ma^2} = \frac{n^2\pi^2\hbar^2}{2ma^2}\qq*{,}n\in\ZZ^+
 \end{equation}
 ก็จะได้
-\begin{eqbox}{พลังงานที่เป็นไปได้ในบ่อศักย์อนันต์}
+\begin{ieqbox}{พลังงานของบ่อศักย์อนั้นต์}
     E_n =  \frac{n^2\pi^2\hbar^2}{2ma^2}\qq*{,}n\in\ZZ^+
-\end{eqbox}
+\end{ieqbox}
 ต่อมาหาชุดของ $(\phi_n)_{n=1}^\infty$ ที่ orthonormal (orthogonal จะสมมติเลยว่าจริงแต่จะหาแค่ $A$ ที่ทำให้ $\psi$ ถูก normalize):
 \[
 \int_0^a A^2\sin^2\ab(kx)\odif{x} = A^2\ab(\frac{a}{2}) = 1
 \] 
 ดังนั้นได้ $A = \sqrt{2/a}$ (ถ้า $A$ ติดลบจะถูก absorb ได้เมื่อหาสัมประสิทธิ์ $c_n$ อยู่ดี จึงให้เป็นบวก) ก็จะได้
-\begin{eqbox}{ชุดของฟังก์ชันคลื่น (ที่ไม่ขึ้นกับเวลา) ในบ่อศักย์อนันต์}
+\begin{ieqbox}{สถานะนิ่งของบ่อศักย์อนันต์}
     \psi_n\ab(x) = \sqrt{\frac{2}{a}}\sin\ab(\frac{n\pi}{a}x)\qq*{,}n\in\ZZ^+
-\end{eqbox}
+\end{ieqbox}
 เราจะเรียกสถานะที่มีพลังงานตำที่สุด ($n = 1$) ว่าเป็น\emph{สถานะพื้น} (\emph{ground state}) และสถานะอื้นว่า\emph{สถานะกระตุ้น} (\emph{excited state}) และเราจะสามารถหาสัมประสิทธิ์ $c_n$ สำหรับ $\Psi(x, t)$ ใด ๆ (โดยที่มีสภาวะขอบเขต $\Psi(x, 0)$) ได้โดย
 \begin{equation}
     c_n = \infint \Psi(x, 0)\,\psi_n(x)\odif{x} = \sqrt{\frac{2}{a}}\int_0^a \sin\ab(\frac{n\pi}{a}x)\,\Psi(x, 0)\odif{x}
@@ -195,7 +195,7 @@ V(x) = \frac{1}{2}m\omega^2x^2
         [\hat{A}, \hat{B}] \equiv \hat{A}\hat{B} - \hat{B}\hat{A}
     \end{equation}
 \end{defbox}
-คล้ายกับการวัด ``ความไม่สลับที่ไ้ด้'' ของสองโอเปอเรเตอร์ พิจารณา $[\hat{x}, \hat{p}]$:
+คล้ายกับการวัด ``ความไม่สลับที่ได้'' ของสองโอเปอเรเตอร์ พิจารณา $[\hat{x}, \hat{p}]$:
 \begin{align*}
     [\hat{x}, \hat{p}]\,f(x) &= \ab(-i\hbar x\odv{}{x} + i\hbar\odv{}{x}x)\,f(x)\\
     &= -\cancel{i\hbar x\odv{}{x}f(x)} + \cancel{i\hbar x\odv{}{x}f(x)} + i\hbar \,f(x)\\
@@ -260,7 +260,7 @@ V(x) = \frac{1}{2}m\omega^2x^2
 \[
 \hat{a}_-\psi_0 = 0
 \]
-(สมมติไปก่อนว่าฟังก์ชันที่ไม่สามารถ normalize ได้นั้นเป็น $0$ ไปเลย) ดังนั้น
+(สมมติไปก่อนว่าฟังก์ชันที่ไม่สามารถ normalize ได้นั้นเป็น $0$ ไปเลย เพราะการมี square integral เป็น $\infty$ ไม่จำเป็นว่าจะไม่ต้องพิจารณา) ดังนั้น
 \begin{align*}
     \cancel{\frac{1}{\sqrt{2\hbar m\omega}}}\ab(\hbar\odv{}{x} + m\omega x)\psi_0 &= 0\\
     \frac{m\omega}{\hbar}\int x\odif{x} &= -\int\frac{1}{\psi_0}\odif{\psi_0} \\
@@ -291,7 +291,7 @@ E_0 = \frac{1}{2}\hbar\omega
 
 และก็จะได้
 \begin{ieqbox}{พลังงานของ Harmonic Oscillator}
-    E_n = \ab(n + \frac{1}{2})\hbar\omega
+    E_n = \ab(n + \frac{1}{2})\hbar\omega\qq*{,}n\in\mathbb{Z}^+_0
 \end{ieqbox}
 
 ต่อมาพิจารณาการหาสัมประสิทธิ์ $A_n$ ของ $\psi_n$ โดยก่อนอื่นจะพิสูจน์ว่า $\hat{a}_-$ และ $\hat{a}_+$ เป็น \emph{adjoint} (หรือ \emph{hermitian conjugate}) ของกันและกัน:
@@ -311,3 +311,24 @@ E_0 = \frac{1}{2}\hbar\omega
     \end{align*}
     ตามต้องการ
 \end{proof}
+
+พิจารณาให้
+\[
+\hat{a}_+\psi_n = c_n\psi_{n+1}
+\]
+จะได้ว่า
+\begin{align*}
+    1 = \infint \abs{\psi_{n+1}}^2\odif{x} &= \frac{1}{c_n^2} \infint \ab(\hat{a}_+\psi_n)^*\ab(\hat{a}_+\psi_n) \odif{x} \\
+    &= \frac{1}{c_n^2} \infint\ab(\hat{a}_-\hat{a}_+\psi_n)^*\psi_n\odif{x}\\
+    &= \frac{1}{c_n^2} \infint\ab[\ab(\frac{1}{\hbar\omega}\hat{H} + \frac{1}{2})\psi_n]^*\psi_n\odif{x}\\
+    &= \frac{1}{c_n^2} \ab(\frac{1}{\hbar\omega}E_n + \frac{1}{2})\infint \abs{\psi_n}^2\odif{x}\\
+    &= \frac{1}{c_n^2} \ab(\frac{1}{\hbar\omega}E_n + \frac{1}{2})
+\end{align*}
+ดังนั้น
+\[
+c_n = \sqrt{\frac{1}{\cancel{\hbar\omega}}\ab(n+\frac{1}{2})\cancel{\hbar\omega} + \frac{1}{2}} = \sqrt{n + 1}
+\]
+ก็จะได้ว่า
+\begin{ieqbox}{สถานะนิ่งของ Harmonic Oscillator}
+    \psi_n(x) = \frac{1}{\sqrt{n!}}\ab(\hat{a}_+)^n\psi_0(x)\qq*{,}n\in\mathbb{Z}^+_0
+\end{ieqbox}
