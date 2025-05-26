@@ -9,9 +9,9 @@
 การเปลี่ยนแปลงของตำแหน่งและโมเมนตัมเมื่อเวลาผ่านไปในกลศาสตร์ดั้งเดิมจะถูกอธิบายด้วยกฎของนิวตัน แต่ในกลศาสตร์ควอนตัม เราจะอธิบายวิวัฒนาการของฟังก์ชันคลื่นด้วย\emph{สมการ Schrödinger}:
 \begin{lawbox}{สมการ Schrödinger}
     อนุภาคที่มีฟังก์ชันคลื่น $\Psi$ จะมีวิวัฒนาการเป็นไปตามสมการ
-    \begin{equation}
+    \begin{equation*}
         i\hbar\pdv{\Psi}{t} = -\frac{\hbar^2}{2m}\pdv[2]{\Psi}{x} + V\Psi\label{1schrodinger}
-    \end{equation}
+    \end{equation*}
 \end{lawbox}
 เมื่อ $\hbar = h/2\pi \approx \qty{1.055e-34}{J.s}$ คือ\emph{ค่าคงที่ของ Planck แบบลดรูป} (และ $h \approx \qty{6.626e-34}{J.s}$ คือ\emph{ค่าคงที่ของ Planck}) และ $V$ เป็นฟังก์ชันจริง
 
@@ -46,11 +46,14 @@
         \pdv{\Psi^*}{t} &= -\frac{i\hbar}{2m}\pdv[2]{\Psi^*}{x} + \frac{i}{\hbar}V\Psi^*
     \end{align*}
     นำไปแทนใน (\ref{1normproof1}) จะได้
-    \begin{align}
-        \pdv{}{t}\abs{\Psi}^2 &= \Psi^*\ab(\frac{i\hbar}{2m}\pdv[2]{\Psi}{x} - \frac{i}{\hbar}V\Psi) + \Psi\ab(-\frac{i\hbar}{2m}\pdv[2]{\Psi^*}{x} + \frac{i}{\hbar}V\Psi^*) \notag\\
-        &= \frac{i\hbar}{2m}\ab(\Psi^*\pdv[2]{\Psi}{x} - \pdv[2]{\Psi^*}{x}\Psi)\notag\\
-        &= \frac{i\hbar}{2m}\pdv{}{x}\ab(\Psi^*\pdv{\Psi}{x} - \pdv{\Psi^*}{x}\Psi)\label{1normproof2}
-    \end{align}
+    \begin{align*}
+        \pdv{}{t}\abs{\Psi}^2 &= \Psi^*\ab(\frac{i\hbar}{2m}\pdv[2]{\Psi}{x} - \frac{i}{\hbar}V\Psi) + \Psi\ab(-\frac{i\hbar}{2m}\pdv[2]{\Psi^*}{x} + \frac{i}{\hbar}V\Psi^*) \\
+        &= \frac{i\hbar}{2m}\ab(\Psi^*\pdv[2]{\Psi}{x} - \pdv[2]{\Psi^*}{x}\Psi)
+    \end{align*}
+    หรือก็คือ
+    \begin{eqnobox}
+        \pdv{}{t}\abs{\Psi}^2 = \frac{i\hbar}{2m}\pdv{}{x}\ab(\Psi^*\pdv{\Psi}{x} - \pdv{\Psi^*}{x}\Psi)\label{1normproof2}
+    \end{eqnobox}
     ดังนั้น
     \[
     \odv{}{t}\infint\abs{\Psi}^2\odif{x} = \infint\pdv{}{t}\abs{\Psi}^2\odif{x} = \frac{i\hbar}{2m}\infint \pdv{}{x}\ab(\Psi^*\pdv{\Psi}{x} - \pdv{\Psi^*}{x}\Psi)\odif{x} = 0
@@ -75,14 +78,14 @@
 
 สังเกตว่าค่าคาดหมายของตำแหน่งและโมเมนตัมอยู่ในรูปคล้าย ๆ กันคือเป็นอินทิกรัลทั่วทุกบริเวณของ $\Psi^*$ คูณกับการกระทำบางอย่างกับฟังก์ชันคลื่น $\Psi$ เราจึงนิยาม\emph{โอเปอเรเตอร์}ตำแหน่ง ($\hat{x}$) และโมเมนตัม ($\hat{p}$):
 \begin{defbox}{โอเปอเรเตอร์ตำแหน่ง (ในหนึ่งมิติ)}
-    \begin{equation}
+    \begin{equation*}
         \hat{x} \equiv x
-    \end{equation}
+    \end{equation*}
 \end{defbox}
 \begin{defbox}{โอเปอเรเตอร์โมเมนตัม (ในหนึ่งมิติ)}
-    \begin{equation}
+    \begin{equation*}
         \hat{p} \equiv -i\hbar\pdv{}{x}
-    \end{equation}
+    \end{equation*}
 \end{defbox}
 
 เราสามารถหาโอเปอเรเตอร์ของค่าทางกลศาสตร์ต่าง ๆ (เช่น $Q(x, p)$) ได้โดยการนำโอเปอเรเตอร์ $\hat{p}$ และ $\hat{x}$ มาประกอบกัน จึงจะตั้งข้อสมมติไปก่อนว่า

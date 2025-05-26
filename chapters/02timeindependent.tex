@@ -15,20 +15,23 @@
     i\hbar\frac{1}{\varphi}\odv{\varphi}{t} &= -\frac{\hbar^2}{2m}\frac{1}{\psi}\odv[2]{\psi}{x} + V
 \end{align*}
 ถ้า $V$ เป็นฟังก์ชันที่ไม่ขึ้นกับเวลาจะได้ว่าฝั่งซ้ายและขวาต้องเท่ากัน สมมติเท่ากับ $E$ ก็จะได้ว่า
-\begin{align}
-    i\hbar\frac{1}{\varphi}\odv{\varphi}{t} &= E\notag\\
-    \int\frac{1}{\varphi}\odif{\varphi} &= -\frac{iE}{\hbar}\int\odif{t}\notag\\
-    \varphi(t) &= e^{-iEt/\hbar}
-\end{align}
+\begin{align*}
+    i\hbar\frac{1}{\varphi}\odv{\varphi}{t} &= E\\
+    \int\frac{1}{\varphi}\odif{\varphi} &= -\frac{iE}{\hbar}\int\odif{t}
+\end{align*}
+ก็จะได้
+\begin{eqnobox}
+    \varphi(t) = e^{-iEt/\hbar}
+\end{eqnobox}
 (โดยจะละค่าคงที่ไว้เพราะ absorb ไว้ในผลเฉลยของ $\psi$) และอีกสมการหนึ่งเราจะเรียกว่าเป็น\emph{สมการ Schrödinger ที่ไม่ขึ้นกับเวลา}: 
 \begin{ieqbox}{สมการ Schrödinger ที่ไม่ขึ้นกับเวลา}
     -\frac{\hbar^2}{2m}\odv[2]{\psi}{x} + V\psi = E\psi\label{2timeindepschrodinger}
 \end{ieqbox}
 
 ฟังก์ชันคลื่นที่เป็นผลเฉลยแบบแยกตัวแปรได้
-\begin{equation}
+\begin{eqnobox}
     \Psi(x, t) = \psi(x)\,e^{-iEt/\hbar}
-\end{equation}
+\end{eqnobox}
 จะเรียกว่าเป็น\emph{สถานะนิ่ง} (\emph{stationary state}) เพราะสังเกตว่า \emph{observable} $Q(x, p)$ ใด ๆ ไม่ขึ้นกับเวลา:
 \begin{align*}
     \avg{Q} &= \infint \Psi^*\hat{Q}\Psi \odif{x}\\
@@ -45,9 +48,9 @@ H(x, p) = \frac{p^2}{2m} + V(x)
 \]
 เราจึงสร้าง\emph{โอเปอเรเตอร์ Hamiltonian} ได้ดังนี้:
 \begin{defbox}{โอเปอเรเตอร์ Hamiltonian}
-    \begin{equation}
+    \begin{equation*}
         \hat{H} \equiv \frac{\hat{p}^2}{2m} + V(x) = -\frac{\hbar^2}{2m}\pdv[2]{}{x} + V(x)
-    \end{equation}
+    \end{equation*}
 \end{defbox}
 ก็จะได้สมการ (\ref{2timeindepschrodinger}) อยู่ในรูป
 \begin{eqbox}{สมการ Schrödinger ที่ไม่ขึ้นกับเวลาในรูป Hamiltonian}
@@ -115,13 +118,13 @@ H(x, p) = \frac{p^2}{2m} + V(x)
 หมายเหตุ: \emph{เราจะนำชุดของ $(\psi_n)_{n=1}^\infty$ ให้เป็นเซตที่เป็นฟังก์ชันจริงและ orthonormal ($\infint\psi_m\psi_n\odif{x} = \delta_{mn}$ เมื่อ $\delta$ คือ Kronecker delta) ซึ่งจะพิสูจน์ว่าสามารถทำได้เสมอในบทถัดไป}
 
 พิจารณาเงื่อนไขในการ normalize $\Psi$ ที่ได้ใน (\ref{2schrodingersol}):
-\begin{equation}
+\begin{eqnobox}
     \infint \Psi^*\Psi\odif{x} = \sum_{m=1}^\infty\sum_{n=1}^\infty\infint c_m^*c_n\psi_m\psi_n\odif{x} = \sum_{m=1}^\infty\sum_{n=1}^\infty c_m^*c_n\delta_{mn} = \sum_{n=1}^\infty\,\abs{c_n}^2 = 1
-\end{equation}
+\end{eqnobox}
 และจะได้ค่าคาดหมายของพลังงาน:
-\begin{equation}
+\begin{eqnobox}
     \avg{H} = \infint\Psi^*\hat{H}\Psi\odif{x} = \sum_{m=1}^\infty\sum_{n=1}^\infty\infint c_m^*c_nE_n\psi_m\psi_n\odif{x} = \sum_{n=1}^\infty\,\abs{c_n}^2E_n
-\end{equation}
+\end{eqnobox}
 โดยขนาดสัมประสิทธิ์ $\abs{c_n}^2$ นี้มีสมบัติคือเป็นความน่าจะเป็นที่จะวัดพลังงานได้ $E_n$ (จะพิสูจน์อีกที)
 
 \section{บ่อศักย์อนันต์}
@@ -129,13 +132,13 @@ H(x, p) = \frac{p^2}{2m} + V(x)
 \subsection{บ่อศักย์อนันต์}
 
 กำหนดให้ในบริเวณหนึ่งมี
-\begin{equation}
+\begin{eqnobox}
     V(x) = 
     \begin{cases}
         0\quad &\text{เมื่อ $x\in\ab[0, a]$}\\
         \infty &\text{เมื่อ $x\notin\ab[0, a]$}
     \end{cases}
-\end{equation}
+\end{eqnobox}
 จะได้ว่าสำหรับ $x\in\ab[0, a]$:
 \begin{align*}
     -\frac{\hbar^2}{2m}\odv[2]{\psi}{x} &= E\psi\\
@@ -152,9 +155,9 @@ H(x, p) = \frac{p^2}{2m} + V(x)
 k = \frac{n\pi}{a}\qq*{,}n\in\ZZ^+
 \]
 (เพราะถ้า $n$ เป็นลบเราสามารถ absorb เข้าค่าคงที่ $A$ ได้และ $n\neq 0$ เพราะ $\Psi$ จะไม่สามารถ normalize ได้) จะได้ว่า $E$ ที่เป็นไปได้คือ
-\begin{equation}
+\begin{eqnobox}
     E = \frac{\hbar^2k^2}{2ma^2} = \frac{n^2\pi^2\hbar^2}{2ma^2}\qq*{,}n\in\ZZ^+
-\end{equation}
+\end{eqnobox}
 ก็จะได้
 \begin{ieqbox}{พลังงานของบ่อศักย์อนันต์}
     E_n =  \frac{n^2\pi^2\hbar^2}{2ma^2}\qq*{,}n\in\ZZ^+
@@ -168,9 +171,9 @@ k = \frac{n\pi}{a}\qq*{,}n\in\ZZ^+
     \psi_n\ab(x) = \sqrt{\frac{2}{a}}\sin\ab(\frac{n\pi}{a}x)\qq*{,}n\in\ZZ^+
 \end{ieqbox}
 เราจะเรียกสถานะที่มีพลังงานตำที่สุด ($n = 1$) ว่าเป็น\emph{สถานะพื้น} (\emph{ground state}) และสถานะอื้นว่า\emph{สถานะกระตุ้น} (\emph{excited state}) และเราจะสามารถหาสัมประสิทธิ์ $c_n$ สำหรับ $\Psi(x, t)$ ใด ๆ (โดยที่มีสภาวะขอบเขต $\Psi(x, 0)$) ได้โดย
-\begin{equation}
+\begin{eqnobox}
     c_n = \infint \Psi(x, 0)\,\psi_n(x)\odif{x} = \sqrt{\frac{2}{a}}\int_0^a \sin\ab(\frac{n\pi}{a}x)\,\Psi(x, 0)\odif{x}
-\end{equation}
+\end{eqnobox}
 
 \section{Harmonic Oscillator เชิงควอนตัม}
 
@@ -191,9 +194,9 @@ V(x) = \frac{1}{2}m\omega^2x^2
 
 โดยก่อนที่เราจะแก้สมการด้านบน เราจะนิยาม \emph{commutator} ของโอเปอเรเตอร์ $\hat{A}$ และ $\hat{B}$ ดังนี้:
 \begin{defbox}{ Commutator}
-    \begin{equation}
+    \begin{equation*}
         [\hat{A}, \hat{B}] \equiv \hat{A}\hat{B} - \hat{B}\hat{A}
-    \end{equation}
+    \end{equation*}
 \end{defbox}
 คล้ายกับการวัด ``ความไม่สลับที่ได้'' ของสองโอเปอเรเตอร์ พิจารณา $[\hat{x}, \hat{p}]$:
 \begin{align*}
@@ -214,28 +217,28 @@ V(x) = \frac{1}{2}m\omega^2x^2
 \]
 ลองพยายาม ``แยกตัวประกอบ'' โดยนิยาม
 \begin{defbox}{โอเปอเรเตอร์ขั้นบันได}
-    \begin{equation}
+    \begin{equation*}
         \hat{a}_\pm \equiv \frac{1}{\sqrt{2\hbar m\omega}}\ab(\mp i\hat{p} + m\omega x)
-    \end{equation}
+    \end{equation*}
 \end{defbox}
 (สัมประสิทธิ์ด้านหน้ามีเพื่อให้จัดรูปสวย ๆ) จะได้ว่า
 \begin{align}
     \hat{a}_-\hat{a}_+ &= \frac{1}{2\hbar m\omega}\ab(\hat{p}^2 + \ab(m\omega x)^2 -im\omega[\hat{x}, \hat{p}])\notag\\
     &= \frac{1}{2\hbar m\omega}\ab(\hat{p}^2 + \ab(m\omega x)^2 +\hbar m\omega)\notag\\
-    &= \frac{1}{\hbar\omega}\hat{H} + \frac{1}{2}\label{2ladderproof1}
+    &= \frac{1}{\hbar\omega}\hat{H} + \frac{1}{2}\tag{$\circ$1}\label{2ladderproof1}
 \end{align}
 และในทำนองเดียวกัน
 \begin{equation}
-    \hat{a}_+\hat{a}_- = \frac{1}{\hbar\omega}\hat{H} - \frac{1}{2}\label{2ladderproof2}
+    \hat{a}_+\hat{a}_- = \frac{1}{\hbar\omega}\hat{H} - \frac{1}{2}\tag{$\circ$2}\label{2ladderproof2}
 \end{equation}
 จาก (\ref{2ladderproof1}) และ (\ref{2ladderproof2}) ก็จะได้
-\begin{equation}
+\begin{eqnobox}[]
     [\hat{a}_-, \hat{a}_+] = 1
-\end{equation}
+\end{eqnobox}
 และสมการ Schrödinger (\ref{2harmonicschrodinger}) จะอยู่ในรูป
-\begin{equation}
+\begin{eqnobox}
     \hat{H}\psi = \hbar\omega\ab(\hat{a}_\pm\hat{a}_\mp \pm \frac{1}{2})\psi = E\psi
-\end{equation}
+\end{eqnobox}
 
 พิจารณาคำตอบหนึ่งของสมการ และนำคำตอบนั้นมา operate ด้วย $\hat{a}_+$:
 \begin{align*}
@@ -250,9 +253,9 @@ V(x) = \frac{1}{2}m\omega^2x^2
 ดังนั้นถ้าเรามีคำตอบหนึ่งของ (\ref{2harmonicschrodinger}) เราสามารถหาคำตอบที่มีพลังงานอื่น ๆ ได้:
 \begin{lawbox}{การสร้างคำตอบใหม่ของ Harmonic Oscillator}
     ถ้ามีคำตอบ $\psi$ ของสมการ (\ref{2harmonicschrodinger}) เราจะสามารถสร้างคำตอบที่มีระดับพลังงานสูงหรือต่ำกว่าได้โดย
-    \begin{equation}
+    \begin{equation*}
         \hat{H}\ab(\hat{a}_\pm\psi) = \ab(E \pm \hbar\omega)(\hat{a}_\pm\psi)
-    \end{equation}
+    \end{equation*}
 \end{lawbox}
 เราจึงเรียกโอเปอเรเตอร์ $\hat{a}_\pm$ ว่า\emph{โอเปอเรเตอร์ขั้นบันได}
 
