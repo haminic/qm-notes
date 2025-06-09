@@ -6,7 +6,7 @@
 
 พิจารณาการแก้สมการ Schrödinger โดยการแยกตัวแปร (โดยเช่นเคย เมื่อแก้สมการออกมาแล้วเราจะสามารถสร้างคำตอบในรูปทั่วไปได้โดยการนำชุดของคำตอบทั้งหมดมารวมกัน เพราะสมการ Schrödinger เป็นสมการเชิงเส้น และปรากฏว่าคำตอบทั้งหมดที่ได้เป็นเซตของฟังก์ชันที่\emph{สมบูรณ์}และ\emph{ตั้งฉากกัน}) โดยถ้าให้
 \[
-\Psi(x, t) = \psi(x)\,\varphi(t)
+	\Psi(x, t) = \psi(x)\,\varphi(t)
 \]
 เมื่อแทนใน (\ref{1schrodinger}) จะได้
 \begin{align*}
@@ -44,7 +44,7 @@
 
 ในกลศาสตร์ดั้งเดิมเราจะเรียกพลังงานรวมของระบบ (พลังงานจลน์บวกพลังงานศักย์) ว่าเป็น \emph{Hamiltonian} $H$ โดยที่
 \[
-H(x, p) = \frac{p^2}{2m} + V(x)
+	H(x, p) = \frac{p^2}{2m} + V(x)
 \]
 เราจึงสร้าง\emph{โอเปอเรเตอร์ Hamiltonian} ได้ดังนี้:
 \begin{defbox}{โอเปอเรเตอร์ Hamiltonian}
@@ -63,7 +63,7 @@ H(x, p) = \frac{p^2}{2m} + V(x)
 \end{equation}
 และ
 \[
-\avg{H^2} = \infint \psi^*\hat{H}\psi\odif{x} = E^2\infint\abs{\psi}^2\odif{x} = E^2
+	\avg{H^2} = \infint \psi^*\hat{H}\psi\odif{x} = E^2\infint\abs{\psi}^2\odif{x} = E^2
 \]
 ดังนั้น
 \begin{equation}
@@ -79,11 +79,11 @@ H(x, p) = \frac{p^2}{2m} + V(x)
 \begin{proof}
     สมมติ $E \equiv E_0 + i\Gamma$ จะได้ว่า
     \[
-    \Psi(x, t) = \psi(x)\,e^{-i(E_0 + i\Gamma)t/\hbar} = \psi(x)\,e^{-iE_0t/\hbar + \Gamma t/\hbar}
+	    \Psi(x, t) = \psi(x)\,e^{-i(E_0 + i\Gamma)t/\hbar} = \psi(x)\,e^{-iE_0t/\hbar + \Gamma t/\hbar}
     \]
     ดังนั้น
     \[
-    \infint \abs{\Psi}^2\odif{x} = \infint \Psi^*\Psi\odif{x} = e^{2\Gamma t/\hbar}\infint \psi^*(x)\,\psi(x)\odif{x}
+	    \infint \abs{\Psi}^2\odif{x} = \infint \Psi^*\Psi\odif{x} = e^{2\Gamma t/\hbar}\infint \psi^*(x)\,\psi(x)\odif{x}
     \]
     ซึ่งต้องเท่ากับ $1$ ทุก ๆ $t$ ดังนั้น $\Gamma$ จึงต้องเท่ากับ $0$ ทำให้ $E$ ต้องเป็นจำนวนจริง ตามต้องการ
 \end{proof}
@@ -102,7 +102,7 @@ H(x, p) = \frac{p^2}{2m} + V(x)
 \begin{proof}
     สมมติว่า $E \leq V_\txt{min}$ และย้ายข้างสมการ (\ref{2timeindepschrodinger}) จะได้
     \[
-    \odv[2]{\psi}{x} = \frac{2m}{\hbar^2}\ab(V(x) - E)\,\psi
+	    \odv[2]{\psi}{x} = \frac{2m}{\hbar^2}\ab(V(x) - E)\,\psi
     \]
     เนื่องจาก $V(x) - E \geq V_\txt{min} - E \geq 0$ จะได้ว่าเครื่องหมายของ $\odv[2]{\psi}{x}$ และ $\psi$ จะต้องตรงกันเสมอ ต่อมาจะพิสูจน์ว่าฟังก์ชันที่มีเงื่อนไขดังกล่าวไม่สามารถ normalize ได้ 
     
@@ -146,13 +146,13 @@ H(x, p) = \frac{p^2}{2m} + V(x)
 \end{align*}
 เมื่อ $k = \sqrt{2mE}/\hbar$ เป็นจำนวนจริง (เพราะจากที่พิสูจน์ไป $E$ ในกรณีนี้ไม่มีทางน้อยกว่า $V_\txt{min} = 0$) ก็จะแก้ได้ว่า
 \[
-\psi(x) = A\sin kx + B\cos kx
+	\psi(x) = A\sin kx + B\cos kx
 \]
 โดยเรามีเงื่อนไขที่ขอบเขต $\psi(0) = 0$ และ $\psi(a) = 0$ เพราะ $\psi$ ต้องต่อเนื่อง (พิสูจน์ทีหลัง) ดังนั้นเมื่อแทน $x = 0$ จะได้ $B = 0$ และเมื่อแทน $x = a$ จะได้ $A = 0$ หรือ $ka \in \{0, \pm\pi, \pm 2\pi, \pm 3\pi, \dots\}$ แต่ $A$ และ $k$ ห้ามเป็น $0$ เพราะมิฉะนั้นฟังก์ชันคลื่น $\Psi(x, t) = \psi(x)\,e^{-iEt/\hbar}$ จะไม่สามารถ normalize ได้
 
 อย่างน่าแปลกใจ เราได้เงื่อนไขของ $E$ ที่เป็นไปได้จากการแก้สมการ โดยเนื่องจากค่า $k$ ที่เป็นไปได้คือ
 \[
-k = \frac{n\pi}{a}\qq*{,}n\in\ZZ^+
+	k = \frac{n\pi}{a}\qq*{,}n\in\ZZ^+
 \]
 (เพราะถ้า $n$ เป็นลบเราสามารถ absorb เข้าค่าคงที่ $A$ ได้และ $n\neq 0$ เพราะ $\Psi$ จะไม่สามารถ normalize ได้) จะได้ว่า $E$ ที่เป็นไปได้คือ
 \begin{eqnobox}
@@ -164,7 +164,7 @@ k = \frac{n\pi}{a}\qq*{,}n\in\ZZ^+
 \end{ieqbox}
 ต่อมาหาชุดของ $(\phi_n)_{n=1}^\infty$ ที่ orthonormal (orthogonal จะสมมติเลยว่าจริงแต่จะหาแค่ $A$ ที่ทำให้ $\psi$ ถูก normalize):
 \[
-\int_0^a A^2\sin^2\ab(kx)\odif{x} = A^2\ab(\frac{a}{2}) = 1
+	\int_0^a A^2\sin^2\ab(kx)\odif{x} = A^2\ab(\frac{a}{2}) = 1
 \] 
 ดังนั้นได้ $A = \sqrt{2/a}$ (ถ้า $A$ ติดลบจะถูก absorb ได้เมื่อหาสัมประสิทธิ์ $c_n$ อยู่ดี จึงให้เป็นบวก) ก็จะได้
 \begin{ieqbox}{สถานะนิ่งของบ่อศักย์อนันต์}
@@ -181,11 +181,11 @@ k = \frac{n\pi}{a}\qq*{,}n\in\ZZ^+
 
 ในกลศาาสตร์ดั้วเดิม ศักย์ของระบบ \emph{simple harmonic oscillator} กำหนดด้วย
 \[
-V(x) = \frac{1}{2}kx^2
+	V(x) = \frac{1}{2}kx^2
 \]
 หรือ
 \[
-V(x) = \frac{1}{2}m\omega^2x^2
+	V(x) = \frac{1}{2}m\omega^2x^2
 \]
 ดังนั้นเราจะพิจารณาศักย์เดียวกันในกลศาาสตร์ควอนตัม:
 \begin{ieqbox}{สมการ Schrödinger ของ Harmonic Oscillator}
@@ -213,7 +213,7 @@ V(x) = \frac{1}{2}m\omega^2x^2
 
 พิจารณา
 \[
-\hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2}m\omega^2x^2 = \frac{1}{2m}\ab(\hat{p}^2 + \ab(m\omega x)^2)
+	\hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2}m\omega^2x^2 = \frac{1}{2m}\ab(\hat{p}^2 + \ab(m\omega x)^2)
 \]
 ลองพยายาม ``แยกตัวประกอบ'' โดยนิยาม
 \begin{defbox}{โอเปอเรเตอร์ขั้นบันได}
@@ -248,7 +248,7 @@ V(x) = \frac{1}{2}m\omega^2x^2
 \end{align*}
 ซึ่งเป็นคำตอบของสมการ (\ref{2harmonicschrodinger}) ที่มีพลังงาน $E + \hbar\omega$ และในทำนองเดียวกันจะได้ว่า
 \[
-\hat{H}\ab(\hat{a}_-\psi) = \ab(E - \hbar\omega)(\hat{a}_-\psi)
+	\hat{H}\ab(\hat{a}_-\psi) = \ab(E - \hbar\omega)(\hat{a}_-\psi)
 \]
 ดังนั้นถ้าเรามีคำตอบหนึ่งของ (\ref{2harmonicschrodinger}) เราสามารถหาคำตอบที่มีพลังงานอื่น ๆ ได้:
 \begin{lawbox}{การสร้างคำตอบใหม่ของ Harmonic Oscillator}
@@ -261,7 +261,7 @@ V(x) = \frac{1}{2}m\omega^2x^2
 
 ต่อมาสังเกตว่าเราสามารถสร้างคำตอบที่มีพลังงานลดลงได้เรื่อย ๆ ซึ่งจะขัดแย้งกับที่เคยพิสูจน์ว่า $E > 0$ ดังนั้นจะต้องมี $\psi_0$ สักตัวที่เป็น ``ขั้นบันไดขั้นแรก'' ที่เมื่อใช้ \emph{lowering operator} ($\hat{a}_-$) แล้วจะได้ฟังก์ชันที่ไม่สามารถ normalize ได้:
 \[
-\hat{a}_-\psi_0 = 0
+	\hat{a}_-\psi_0 = 0
 \]
 (สมมติไปก่อนว่าฟังก์ชันที่ไม่สามารถ normalize ได้นั้นเป็น $0$ ไปเลย เพราะการมี square integral เป็น $\infty$ ไม่จำเป็นว่าจะไม่ต้องพิจารณา) ดังนั้น
 \begin{align*}
@@ -272,19 +272,19 @@ V(x) = \frac{1}{2}m\omega^2x^2
 \end{align*}
 จาก
 \[
-1 = \infint\psi_0^2\odif{x} = A^2\infint e^{-\frac{m\omega}{\hbar}x^2}\odif{x} = A^2\sqrt{\frac{\pi\hbar}{m\omega}}
+	1 = \infint\psi_0^2\odif{x} = A^2\infint e^{-\frac{m\omega}{\hbar}x^2}\odif{x} = A^2\sqrt{\frac{\pi\hbar}{m\omega}}
 \]
 จะได้ค่าคงที่ที่ทำให้ฟังก์ชันนี้ normalize คือ
 \[
-A = \ab(\frac{m\omega}{\pi\hbar})^{1/4}
+	A = \ab(\frac{m\omega}{\pi\hbar})^{1/4}
 \]
 และพิจารณาพลังงาน ($E_0$) ที่สถานะ $\psi_0$ นี้:
 \[
-\hat{H}\psi_0 = \hbar\omega\ab(\hat{a}_+\hat{a}_- + \frac{1}{2})\psi_0 = \hbar\omega\hat{a}_+\cancel{\ab(\hat{a}_-\psi_0)} + \frac{1}{2}\hbar\omega\psi_0 = \ab(\frac{1}{2}\hbar\omega)\psi_0
+	\hat{H}\psi_0 = \hbar\omega\ab(\hat{a}_+\hat{a}_- + \frac{1}{2})\psi_0 = \hbar\omega\hat{a}_+\cancel{\ab(\hat{a}_-\psi_0)} + \frac{1}{2}\hbar\omega\psi_0 = \ab(\frac{1}{2}\hbar\omega)\psi_0
 \]
 ก็จะได้พลังงานที่สถานะพื้นนี้เท่ากับ
 \[
-E_0 = \frac{1}{2}\hbar\omega
+	E_0 = \frac{1}{2}\hbar\omega
 \]
 สรุปก็คือ
 \begin{eqbox}{สถานะพื้นของ Harmonic Oscillator}
@@ -293,7 +293,7 @@ E_0 = \frac{1}{2}\hbar\omega
 หมายเหตู: \emph{คำตอบทั้งหมดของ (\ref{2harmonicschrodinger}) จะต้องมาจากการ operate $\hat{a}_+$ บน $\psi_0$ เพราะทุก ๆ คำตอบที่เราสนใจจะต้องเกิดสถานะพื้นที่มีเงื่อนไข $\hat{a}_-\psi_0 = 0$ เสมอ}
 
 และก็จะได้
-\begin{ieqbox}{พลังงานของ Harmonic Oscillator}
+\begin{ieqbox}[label=2harmonicenergy]{พลังงานของ Harmonic Oscillator}
     E_n = \ab(n + \frac{1}{2})\hbar\omega\qq*{,}n\in\mathbb{Z}^+_0
 \end{ieqbox}
 
@@ -304,7 +304,7 @@ E_0 = \frac{1}{2}\hbar\omega
 \begin{proof}
     เนื่องจาก integration by parts จะได้
     \[
-    \infint f^*\odv{g}{x}\odif{x} = \cancel{\eval{f^*g}_{-\infty}^\infty} - \infint \ab(\odv{f}{x})^*g\odif{x} = - \infint \ab(\odv{f}{x})^*g\odif{x}
+	    \infint f^*\odv{g}{x}\odif{x} = \cancel{\eval{f^*g}_{-\infty}^\infty} - \infint \ab(\odv{f}{x})^*g\odif{x} = - \infint \ab(\odv{f}{x})^*g\odif{x}
     \]
     ดังนั้น
     \begin{align*}
@@ -317,7 +317,7 @@ E_0 = \frac{1}{2}\hbar\omega
 
 พิจารณาให้
 \[
-\hat{a}_+\psi_n = c_n\psi_{n+1}
+	\hat{a}_+\psi_n = c_n\psi_{n+1}
 \]
 จะได้ว่า
 \begin{align*}
@@ -329,11 +329,90 @@ E_0 = \frac{1}{2}\hbar\omega
 \end{align*}
 ดังนั้น
 \[
-c_n = \sqrt{\frac{1}{\cancel{\hbar\omega}}\ab(n+\frac{1}{2})\cancel{\hbar\omega} + \frac{1}{2}} = \sqrt{n + 1}
+	c_n = \sqrt{\frac{1}{\cancel{\hbar\omega}}\ab(n+\frac{1}{2})\cancel{\hbar\omega} + \frac{1}{2}} = \sqrt{n + 1}
 \]
 ก็จะได้ว่า
-\begin{ieqbox}{สถานะนิ่งของ Harmonic Oscillator}
+\begin{ieqbox}[label=2stationaryrecursion]{สถานะนิ่งของ Harmonic Oscillator ในรูปโอเปอเรเตอร์ขั้นบันได}
     \psi_n(x) = \frac{1}{\sqrt{n!}}\ab(\hat{a}_+)^n\psi_0(x)\qq*{,}n\in\mathbb{Z}^+_0
 \end{ieqbox}
 
 \subsection{วิธีเชิงวิเคราะห์}
+
+สมมติให้
+\[
+    \xi \equiv \sqrt{\frac{m\omega}{\hbar}}x
+\]
+โดย (\ref{2harmonicschrodinger}) จะได้ว่า
+\begin{eqbox}{}
+    \odv[2]{\psi}{\xi} = \ab(\xi^2 - K)\,\psi
+\end{eqbox}
+เมื่อ $K \equiv \frac{2E}{\hbar\omega}$
+
+เราจะแก้สมการนี้โดยอาศัย power series แต่เนื่องจากโดยทั่วไปแล้ว $\psi$ จะไม่เป็นฟังก์ชัน analytic เราจึงลองพิจารณา asymptotic behavior ของ $\psi$:
+
+เมื่อ $\xi \to \pm\infty$ จะได้ว่า
+\[
+    \odv[2]{\psi}{\xi} \approx \xi^2\psi
+\]
+ซึ่งสามารถประมาณคำตอบได้
+\begin{eqnobox}
+    \psi(\xi) \approx Ae^{-\xi^2/2} + Be^{\xi^2/2}
+\end{eqnobox}
+แต่ส่วนหลังยังไงก็ normalize ไม่ได้จึงตัดออกไป
+
+ต่อมาเราจะกำหนดให้
+\begin{eqnobox}[label=2analyticproof1]
+    \psi(\xi) = h(\xi)\,e^{-\xi^2/2}
+\end{eqnobox}
+และหวังว่าคำตอบที่ได้จะสามารถเขียนได้เป็น power series:
+\[
+    h(\xi) = a_0 + a_1\xi + a_2\xi^2 + \dots
+\]
+เมื่อลองนำ (\ref{2analyticproof1}) ไปแทนใน (\ref{2harmonicschrodinger}) จะได้ว่า
+\begin{eqbox}{}
+    \odv[2]{h}{\xi} - 2\xi\odv{h}{\xi} + \ab(K-1)h = 0
+\end{eqbox}
+นำ power series ของ $h$ ไปแทนจากนั้นเทียบสัมประสิทธิ์ ก็จะได้
+\[
+    (j+1)(j+2)a_{j+2} - 2ja_j + (K-1)a_j = 0
+\]
+หรือ
+\begin{ieqbox}{ความสัมพันธ์เวียนเกิดของสัมประสิทธิ์ Power Series ของ h}
+    a_{j+2} = \frac{2j+1-K}{(j+1)(j+2)}a_j
+\end{ieqbox}
+สำหรับทุก $j\in\ZZ^+$ โดยจะมีค่าขอบเขตที่เลือกได้คือ $a_0$ และ $a_1$ (ก็จะเห็นได้ว่า $h$ กำลังคู่และกำลังคี่นั้น independent ต่อกันและกัน)
+
+แต่สังเกตว่าเมื่อ $j\to\infty$ ทำให้ $a_{j+2}\approx (2/j)\,a_j$ หรือ $a_j\approx C/(j/2)!$ ดังนั้น
+\[
+    h(\xi) = \Theta\ab(\sum\frac{1}{(j/2)!}\xi^j) = \Theta\ab(\sum\frac{1}{j!}\xi^{2j}) = \Theta\ab(e^{\xi^2}) 
+\]
+ซึ่งเห็นชัดว่าจะทำให้ $\psi$ normalize ไม่ได้ ดังนั้นค่า $K$ ที่สมเหตุสมผลจะต้องทำให้ความสัมพันธ์เวียนเกิดนี้จบลงที่เลขชี้กำลังค่าหนึ่ง แต่เราสามารถเลือกได้ให้เพียงกำลังคู่หรือกำลังคี่มีจุดจบเท่านั้น จึงทำให้เราจำเป็นต้องมี $a_0 = 0$ หรือ $a_1 = 0$
+
+โดยค่า $K$ ที่เป็นไปได้นั้นก็คือ
+\[
+    K = 2n+1
+\]
+สำหรับ $n\in\ZZ_0^+$ หรือก็จะได้ค่าพลังงานที่เป็นไปได้เช่นเดียวกับ (\ref{2harmonicenergy})
+
+จะเห็นว่าในแต่ละค่า $n$ เราจะได้พหุนามดีกรี $n$ ที่มีกำลังคู่หรือกำลังคี่อย่างใดอย่างหนึ่งเท่านั้นสำหรับ $h$ โดยเราจะเรียกพหุนามที่ว่านี้ (เมื่อทำให้สัมประสิทธิ์พจน์สูงสุดเป็น $2^n$ ตาม convention) ว่า\emph{พหุนาม Hermite} ($H_n$) โดยมี $6$ ตัวแรกคือ:
+\begin{align*}
+    H_1(\xi) &= 2\xi\\
+    H_2(\xi) &= 4\xi^2 - 2\\
+    H_3(\xi) &= 8\xi^3 - 12\xi\\
+    H_4(\xi) &= 16\xi^4 - 48\xi^2 + 12\\
+    H_5(\xi) &= 32\xi^5 - 160\xi^3 + 120\xi
+\end{align*}
+
+เราจะได้คำตอบของสมการ Schrödinger คือ
+\[
+    \psi_n(x) = C_nH_n(\xi)e^{-\xi^2/2}
+\]
+หรือเมื่อ normalize ก็จะได้
+\begin{ieqbox}{สถานะนิ่งของ Harmonic Oscillator ในรูปพนุนาม Hermite}
+    \psi_n(x) = \ab(\frac{m\omega}{\pi\hbar})^{1/4}\frac{1}{\sqrt{2^nn!}}H_n(\xi)e^{-\xi^2/2}
+\end{ieqbox}
+ซึ่งถ้าลองใช้ความสัมพันธ์เวียนเกิดแบบโอเปอเรเตอร์ขั้นบันไดใน (\ref{2stationaryrecursion}) จะเห็นได้ว่า $\psi_n$ ทั้งคู่นี้เหมือนกัน
+
+
+
+
