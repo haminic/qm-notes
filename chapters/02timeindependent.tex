@@ -413,6 +413,123 @@
 \end{ieqbox}
 ซึ่งถ้าลองใช้ความสัมพันธ์เวียนเกิดแบบโอเปอเรเตอร์ขั้นบันไดใน (\ref{2stationaryrecursion}) จะเห็นได้ว่า $\psi_n$ ทั้งคู่นี้เหมือนกัน
 
+โดยมีสมบัติที่น่าสนใจของพหุนาม Hermite ดังนี้:
+\begin{corbox}{สมบัติของพหุนาม Hermite}
+    \begin{compactenum}
+        \item สูตร Rodrigues:
+        \begin{equation}
+            H_n(\xi) = (-1)^n e^{\xi^2}\ab(\odv{}{\xi})^n e^{-\xi^2}
+        \end{equation}
+        \item ความสัมพันธ์เวียนเกิด:
+        \begin{equation}
+            H_{n+1}(\xi) = 2\xi\,H_n(\xi) - 2n\,H_{n-1}(\xi)
+        \end{equation}
+        \item อนุพันธ์:
+        \begin{equation}
+            \odv{H_n}{\xi} = 2n\,H_{n-1}(\xi)
+        \end{equation}
+        \item $H_n(\xi)$ เป็นสัมประสิทธิ์ของฟังก์ชันก่อกำเนิดเชิงเอกซ์โพเนนเชียล 
+        \begin{equation}
+            \exp(-z^2 + 2z\xi)            
+        \end{equation}
+    \end{compactenum}
+\end{corbox}
 
+\section{อนุภาคอิสระ}
 
+พิจารณาสมการ Schrödinger ของอนุภาคอิสระ (ไม่มีสนามศักย์):
+\[
+    -\frac{\hbar^2}{2m}\odv[2]{\psi}{x} = E\psi    
+\]
+หรือก็คือ
+\begin{eqnobox}
+    \odv[2]{\psi}{x} = -k^2\psi \quad\text{เมื่อ }k \equiv \frac{\sqrt{2mE}}{\hbar}
+\end{eqnobox}
+ก็จะได้ว่า
+\begin{eqnobox}
+    \psi(x) = Ae^{ikx} + Be^{-ikx}
+\end{eqnobox}
+โดยที่ไม่มีสภาวะขอบเขตเพิ่มเติมจึงทำให้ $k$ (หรือ $E$) ที่มีค่าเท่าใดก็ได้ โดยเนื่องจาก $A$ และ $B$ เป็นอิสระต่อกัน เราจะเขียน
+\begin{eqbox}{``สถานะนิ่ง'' ของอนุภาคอิสระ}
+    \Psi_k(x, t) = Ae^{i\ab(kx - (E/\hbar)t)} = Ae^{i\ab(kx - \frac{\hbar k^2}{2m}t)}
+\end{eqbox}
+โดยให้ $k$ มีค่าเป็นลบได้
 
+เราจะเห็นว่า ``สถานะนิ่งเหล่านี้'' มีลักษณะเป็นคลื่น ซึ่งเห็นชัดไม่สามารถ normalize ได้ แต่ปรากฏว่าเมื่อเรานำมา superpose กัน:
+\begin{ieqbox}[label=02freesuperpose]{คำตอบของสมการ Schrödinger ของอนุภาคอิสระ}
+    \Psi(x, t) = \sum a_k\Psi_k(x,t) = \frac{1}{\sqrt{2\pi}} \infint \phi(k)\,e^{i\ab(kx - \frac{\hbar k^2}{2m}t)}\odif{k}
+\end{ieqbox}
+(โดยการขยายจาก discrete $\to$ continuous เราจะมองสัมประสิทธิ์ $a_k \sim (1/\sqrt{2\pi})\phi(k)$) มีโอกาสที่จะทำให้ normalize ได้อยู่
+
+สังเกตว่าความเร็วของคลื่นที่ $k$ เท่ากับ
+\[
+    v_\txt{quantum} = \frac{\omega}{k} = \frac{\hbar\abs{k}}{2m} = \sqrt{\frac{E}{2m}}
+\]
+ซึ่งมีค่าเป็นครึ่งหนึ่งของความเร็วแบบ ``ดั้งเดิม'':
+\begin{eqnobox}
+    v_\txt{classical} = \sqrt{\frac{2E}{m}} = 2v_\txt{quantum}
+\end{eqnobox}
+อาจดูแปลก แต่จริง ๆ แล้วความเร็ว $v_\txt{quantum}$ ที่เราได้มานั้นไม่ใช่สิ่งที่สังเกตได้จริง ๆ แต่ (ตามเซนส์แล้ว) น่าจะควรเป็น $\odv{}{t}\avg{x}$ มากกว่า ซึ่งถ้าเราลองจินตนาการถึงกราฟของ state จริง ๆ ที่เกิดจากการ superpose ดัง (\ref{02freesuperpose}) จะเห็นว่าเนื่องจากมันเป็นคลืนที่เป็นลักษณะ \emph{wave packet} ทำให้มีความเร็วอยู่ $2$ แบบคือ\emph{ความเร็วเฟส}กับ\emph{ความเร็วกลุ่ม} โดย $\odv{}{t}\avg{x}$ นี้ต้องมาจากความเร็วกลุ่ม ไม่ใช่ความเร็วเฟส (ซึ่งคือค่า $v_\txt{quantum}$ ที่เราได้มา) โดยความเร็วกลุ่มนี้ไม่ได้มีค่าเท่ากับความเร็วเฟสเพราะผลจากคลื่นรอบ ๆ เกิดการแทรกสอดกันให้เกิดความเร็วกลุ่มมาอีกค่าซึ่งขึ้นอยู่กับ \emph{dispersion relation} ($\omega(k)$) 
+
+เราสามารถหาความเร็วกลุ่มได้โดยการพิจารณา wave packet ที่มีค่า $k$ ค่อนข้างจะ well-defined หรือก็คือ $\phi(k)$ มีลักษณะเป็นแหลม ๆ ที่ค่า $k_0$ ค่าหนึ่ง ให้ $\omega_0\equiv\omega(k_0)$ และ $s \equiv k-k_0$ จะได้ว่า
+\begin{align*}
+    \phi(k)\,e^{i\ab(kx-\omega t)} &\approx \phi(k)\exp \ab[i\ab((k_0 + s)\,x - (\omega_0 + \omega_0' s)\,t)]\\ 
+    &= \phi(k_0 + s)\,e^{i\ab(k_0x - \omega_0t)}\,e^{is\ab(x - \omega_0't)}
+\end{align*}
+ดังนั้น
+\[
+    \Psi(x, t) = \frac{1}{\sqrt{2\pi}}\infint\phi(k)\,e^{i\ab(kx-\omega t)}\odif{k} \approx \frac{1}{\sqrt{2\pi}}\,e^{i\ab(k_0x - \omega_0t)} \infint \phi(k_0 + s)\,e^{is\ab(x - \omega_0't)}\odif{s}
+\]
+หรือก็คือสำหรับบางฟังก์ชัน $A\colon\RR\to\RR$:
+\begin{eqnobox}
+    \Psi(x, t) = \frac{1}{\sqrt{2\pi}}\,e^{i\ab(k_0x - \omega_0t)}\,A(x - \omega_0't)
+\end{eqnobox}
+จะเห็นได้ว่าคลื่น ``หลัก'' เล็ก ๆ ที่มีความถี่เฟส $\omega_0/k_0$ ถูกกำหนดแอมพลิจูดด้วยฟังก์ชัน $A$ ที่เคลื่อนที่เป็นคลื่นด้วยความเร็ว $\omega_0' = \eval{\odif{\omega}/\odif{k}}_{k_0}$:
+\begin{ieqbox}{ความเร็วเฟสและความเร็วกลุ่ม}
+    v_\txt{phase} = \frac{\omega}{k} \qq{และ} v_\txt{group} = \odv{\omega}{k}
+\end{ieqbox}
+ซึ่งใช้ได้กับ dispersion relation แบบใดก็ได้ แต่ในกรณีนี้จะได้ความเร็วกลุ่ม:
+\begin{eqbox}[label=02freevelocity]{ความเร็วของอนุภาคอิสระ}
+    v = \odv{\omega}{k} = \odv{}{k} \frac{\hbar k^2}{2m} = \sqrt{\frac{2E}{m}}
+\end{eqbox}
+ได้ว่าตรงกับ $v_\txt{classical}$ และตรงกับความสัมพันธ์ของ de Broglie (\ref{01debroglie}):
+\[
+    \sqrt{2mE} \equal{(\ref{02freevelocity})} mv = p \equal{(\ref{01debroglie})} \frac{2\pi\hbar}{\lambda} = \hbar k 
+\]
+
+สุดท้ายนี้ เราได้ดูทฤษฎีต่าง ๆ นา ๆ เกี่ยวกับวิวัฒนาการของอนุภาคอิสระ แต่เรายังไม่มีวิธีการหาสัมประสิทธิ์ $\phi(k)$ จากสภาวะขอบเขต $\Psi(x, 0)$ เลย ปัญหานี้สามารถแก้ได้โดยทฤษฎีของ\emph{การแปลง Fourier}:
+\begin{ieqbox}{ทฤษฎีบทของ Plancherel}
+    f(x) = \frac{1}{\sqrt{2\pi}} \infint F(k)\,e^{ikx}\odif{k} \iff F(k) = \frac{1}{\sqrt{2\pi}} \infint f(x)\,e^{-ikx}\odif{x}
+\end{ieqbox}
+โดยจะเรียก $F(k)$ ว่าเป็นการแปลง Fourier (Fourier transform) ของ $f(x)$ และ $f(x)$ ว่าเป็นการแปลง Fourier ผกผัน (inverse Fourier transform) ของ $F(k)$ ก็จะได้ว่า
+\begin{eqbox}{การหาสัมประสิทธิ์ของสถานะนิ่ง}
+    \phi(k) = \frac{1}{\sqrt{2\pi}} \infint \Psi(x, 0)\,e^{-ikx}\odif{x}
+\end{eqbox}
+\begin{proof}
+    (คร่าว ๆ) TO-DO
+\end{proof}
+
+\begin{exbox}
+    อนุภาคอิสระมีฟังก์ชันคลื่น ณ $t = 0$ ดังนี้:
+    \begin{equation}
+        \Psi(x, 0) = Ae^{-ax^2} \tag{$\star$}
+    \end{equation}
+    เมื่อ $A, a \in \RR^+$
+\end{exbox}
+\begin{enumerate}[label=(\alph*)]
+    \item จง normalize $\Psi(x, 0)$
+    \begin{soln}
+        TO-DO
+    \end{soln}
+    \item จงหา $\Psi(x, t)$
+    \begin{soln}
+        TO-DO
+    \end{soln}
+    \item จงหา $\abs{\Psi(x, t)}^2$ โดยติดในรูป
+    \[
+        w \equiv \sqrt{a/\ab[1 + \ab(2\hbar at/m)^2]}
+    \]
+    \begin{soln}
+        TO-DO
+    \end{soln}
+\end{enumerate}
