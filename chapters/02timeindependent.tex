@@ -497,7 +497,7 @@
     \sqrt{2mE} \equal{(\ref{02freevelocity})} mv = p \equal{(\ref{01debroglie})} \frac{2\pi\hbar}{\lambda} = \hbar k 
 \]
 
-สุดท้ายนี้ เราได้ดูทฤษฎีต่าง ๆ นา ๆ เกี่ยวกับวิวัฒนาการของอนุภาคอิสระ แต่เรายังไม่มีวิธีการหาสัมประสิทธิ์ $\phi(k)$ จากสภาวะขอบเขต $\Psi(x, 0)$ เลย ปัญหานี้สามารถแก้ได้โดยทฤษฎีของ\emph{การแปลง Fourier}:
+สุดท้ายนี้ เราได้ดูทฤษฎีต่าง ๆ เกี่ยวกับวิวัฒนาการของอนุภาคอิสระ แต่เรายังไม่มีวิธีการหาสัมประสิทธิ์ $\phi(k)$ จากสภาวะขอบเขต $\Psi(x, 0)$ เลย ปัญหานี้สามารถแก้ได้โดยทฤษฎีของ\emph{การแปลง Fourier}:
 \begin{ieqbox}{ทฤษฎีบทของ Plancherel}
     f(x) = \frac{1}{\sqrt{2\pi}} \infint F(k)\,e^{ikx}\odif{k} \iff F(k) = \frac{1}{\sqrt{2\pi}} \infint f(x)\,e^{-ikx}\odif{x}
 \end{ieqbox}
@@ -506,7 +506,25 @@
     \phi(k) = \frac{1}{\sqrt{2\pi}} \infint \Psi(x, 0)\,e^{-ikx}\odif{x}
 \end{eqbox}
 \begin{proof}
-    (คร่าว ๆ) TO-DO
+    (คร่าว ๆ) ให้ $a$ เป็นจำนวนจริงบวก โดยทฤษฎีบทของ Dirichlet เราสามารถเขียนฟังก์ชัน $f(x)$ ใด ๆ ในช่วง $[-a, a]$ ได้ในรูป
+    \begin{equation}
+        f(x) = \sum_{n=-\infty}^\infty c_ne^{in\pi x/a}\tag{$\diamond$1}\label{02prooffourier1}
+    \end{equation}
+    และโดยใช้ Fourier's trick จะได้ว่า
+    \begin{equation}
+        c_n = \frac{1}{2a}\int_{-a}^a f(x)\,e^{-in\pi x/a}\odif{x}\tag{$\diamond$2}\label{02prooffourier2}
+    \end{equation}
+    กำหนดให้ $k = n\pi/a$ และ $F(k) \equiv \sqrt{2/\pi}\,ac_n$ จาก (\ref{02prooffourier1}) และ (\ref{02prooffourier2}) จะได้ว่า
+    \begin{equation}
+        f(x) = \frac{1}{\sqrt{2\pi}}\sum_{n=-\infty}^\infty F(k)\,e^{ikx}\,\Delta k \qq{และ} F(k) = \frac{1}{\sqrt{2\pi}} \int_{-a}^a f(x)\,e^{-ikx}\odif{x}\tag{$\diamond$3}\label{02prooffourier3}
+    \end{equation}
+    เมื่อ $Delta k$ คือผลต่างค่า $k$ จากค่า $n$ ที่ติดกัน
+
+    เมื่อให้ $a\to\infty$ ใน (\ref{02prooffourier3}) จะได้ว่าฝั่งซ้ายเป็น Riemann sum และฟั่งขวาเป็นอินทิกรัลอนันต์:
+    \[
+        f(x) = \frac{1}{\sqrt{2\pi}} \infint F(k)\,e^{ikx}\odif{k} \qq{และ} F(k) = \frac{1}{\sqrt{2\pi}} \infint f(x)\,e^{-ikx}\odif{x}
+    \]
+    ตามต้องการ
 \end{proof}
 
 \begin{exbox}
@@ -515,21 +533,38 @@
         \Psi(x, 0) = Ae^{-ax^2} \tag{$\star$}
     \end{equation}
     เมื่อ $A, a \in \RR^+$
+    \begin{compactenum}[label=(\alph*)]
+        \item จง normalize $\Psi(x, 0)$
+        \item จงหา $\Psi(x, t)$
+        \item จงหา $\abs{\Psi(x, t)}^2$ โดยติดในรูป
+        \[
+            w \equiv \sqrt{a/\ab[1 + \ab(2\hbar at/m)^2]}
+        \]
+        และพิจารณาว่าเกิดอะไรขึ้นกับ $\abs{\Psi}^2$ เมื่อเวลาผ่านไป $t\to\infty$
+        \item จงหา $\avg{x}$, $\avg{p}$, $\sigma_x$, และ $\sigma_p$
+        \item จงหาว่า ณ เวลา $t$ เท่าใดจะทำให้อสมการความไม่แน่นอนของ Heisenberg เข้าใกล้ที่จะเป็นสมการที่สุด
+    \end{compactenum}
 \end{exbox}
-\begin{enumerate}[label=(\alph*)]
-    \item จง normalize $\Psi(x, 0)$
-    \begin{soln}
-        TO-DO
-    \end{soln}
-    \item จงหา $\Psi(x, t)$
-    \begin{soln}
-        TO-DO
-    \end{soln}
-    \item จงหา $\abs{\Psi(x, t)}^2$ โดยติดในรูป
+\begin{soln}
+    (a) จาก
     \[
-        w \equiv \sqrt{a/\ab[1 + \ab(2\hbar at/m)^2]}
+        1 = \infint \abs{\Psi(x, 0)}^2 \odif{x} = A^2 \infint e^{-2ax^2}\odif{x} = A^2 \sqrt{\frac{\pi}{2a}}
     \]
-    \begin{soln}
-        TO-DO
-    \end{soln}
-\end{enumerate}
+    จะได้ว่า $A = (2a/\pi)^{1/4}$
+    
+    (b) หา $\phi(k)$:
+    \begin{align*}
+        \phi(k) &= \frac{1}{\sqrt{2\pi}} \infint Ae^{-ax^2}e^{-ikx}\odif{x} \\
+        &= \frac{A}{\sqrt{2\pi}} \infint e^{-a\ab(x^2 + \frac{ik}{a}x - \frac{k^2}{4a^2}) - \frac{k^2}{4a}} \odif{x} \\
+        &= \frac{A}{\sqrt{2\pi}} \infint e^{-a\ab(x + \frac{ik}{2a})^2 - \frac{k^2}{4a}} \odif{x} \\
+        &= \frac{A}{\sqrt{2\pi}} e^{-\frac{k^2}{4a}} \infint e^{-a(x + it)^2} \odif{x}
+    \end{align*}
+    (สังเกตว่าไม่สามารถเปลี่ยนตัวแปรได้ตามปกติเพราะในตัวแปร $x$ เราอินทิเกรตบนเส้น $\Im(z) = 0$ แต่ในตัวแปร $y \equiv x + it$ อินทิเกรตบนเส้น $\Im(z) = t$) จาก Residue theorem โดยใช้ contour เป็น $-\infty \to \infty \to \infty + it \to -\infty + it \to -\infty$ ($e^{-z^2}$ เมื่อ $z\to\infty$ น้อยมาก ๆ) จะได้ว่า
+    \[
+        \phi(k) = \frac{A}{\sqrt{2\pi}} e^{-\frac{k^2}{4a}} \infint e^{-ax^2}\odif{x} = \frac{A}{\sqrt{2a}} e^{-\frac{k^2}{4a}}
+    \]
+    ดังนั้นจะได้
+    \[
+        \Psi(x, t) = \frac{A}{2\sqrt{a\pi}} \infint e^{-\frac{k^2}{4a}} e^{i\ab(kx - \frac{\hbar k^2}{2m}t)} \odif{k}
+    \]
+\end{soln}
