@@ -518,7 +518,7 @@
     \begin{equation}
         f(x) = \frac{1}{\sqrt{2\pi}}\sum_{n=-\infty}^\infty F(k)\,e^{ikx}\,\Delta k \qq{และ} F(k) = \frac{1}{\sqrt{2\pi}} \int_{-a}^a f(x)\,e^{-ikx}\odif{x}\tag{$\diamond$3}\label{02prooffourier3}
     \end{equation}
-    เมื่อ $Delta k$ คือผลต่างค่า $k$ จากค่า $n$ ที่ติดกัน
+    เมื่อ $\Delta k$ คือผลต่างค่า $k$ จากค่า $n$ ที่ติดกัน
 
     เมื่อให้ $a\to\infty$ ใน (\ref{02prooffourier3}) จะได้ว่าฝั่งซ้ายเป็น Riemann sum และฟั่งขวาเป็นอินทิกรัลอนันต์:
     \[
@@ -550,21 +550,69 @@
     \[
         1 = \infint \abs{\Psi(x, 0)}^2 \odif{x} = A^2 \infint e^{-2ax^2}\odif{x} = A^2 \sqrt{\frac{\pi}{2a}}
     \]
-    จะได้ว่า $A = (2a/\pi)^{1/4}$
+    จะได้ว่า $\boxed{A = (2a/\pi)^{1/4}}$
     
     (b) หา $\phi(k)$:
-    \begin{align*}
-        \phi(k) &= \frac{1}{\sqrt{2\pi}} \infint Ae^{-ax^2}e^{-ikx}\odif{x} \\
-        &= \frac{A}{\sqrt{2\pi}} \infint e^{-a\ab(x^2 + \frac{ik}{a}x - \frac{k^2}{4a^2}) - \frac{k^2}{4a}} \odif{x} \\
-        &= \frac{A}{\sqrt{2\pi}} \infint e^{-a\ab(x + \frac{ik}{2a})^2 - \frac{k^2}{4a}} \odif{x} \\
-        &= \frac{A}{\sqrt{2\pi}} e^{-\frac{k^2}{4a}} \infint e^{-a(x + it)^2} \odif{x}
-    \end{align*}
+    \[
+        \phi(k) = \frac{1}{\sqrt{2\pi}} \infint Ae^{-ax^2}e^{-ikx}\odif{x} = \frac{A}{\sqrt{2\pi}} \infint e^{-a\ab(x + \frac{ik}{2a})^2 - \frac{k^2}{4a}} \odif{x} = \frac{A}{\sqrt{2\pi}} e^{-\frac{k^2}{4a}} \infint e^{-a(x + it)^2} \odif{x}
+    \]
     (สังเกตว่าไม่สามารถเปลี่ยนตัวแปรได้ตามปกติเพราะในตัวแปร $x$ เราอินทิเกรตบนเส้น $\Im(z) = 0$ แต่ในตัวแปร $y \equiv x + it$ อินทิเกรตบนเส้น $\Im(z) = t$) จาก Residue theorem โดยใช้ contour เป็น $-\infty \to \infty \to \infty + it \to -\infty + it \to -\infty$ ($e^{-z^2}$ เมื่อ $z\to\infty$ น้อยมาก ๆ) จะได้ว่า
     \[
         \phi(k) = \frac{A}{\sqrt{2\pi}} e^{-\frac{k^2}{4a}} \infint e^{-ax^2}\odif{x} = \frac{A}{\sqrt{2a}} e^{-\frac{k^2}{4a}}
     \]
     ดังนั้นจะได้
     \[
-        \Psi(x, t) = \frac{A}{2\sqrt{a\pi}} \infint e^{-\frac{k^2}{4a}} e^{i\ab(kx - \frac{\hbar k^2}{2m}t)} \odif{k}
+        \Psi(x, t) = \frac{A}{2\sqrt{a\pi}} \infint e^{-\frac{k^2}{4a}} e^{i\ab(kx - \frac{\hbar k^2}{2m}t)} \odif{k} = \frac{A}{2\sqrt{a\pi}} \infint e^{-\ab(\frac{1 + (2i\hbar at/m)}{4a})k^2 + (ix)k} \odif{k}
     \]
+    ให้ $\gamma \equiv \sqrt{1 + (2i\hbar at/m)}$:
+    \begin{align*}
+        \Psi(x, t) &= \frac{A}{2\sqrt{a\pi}} \infint e^{-\frac{\gamma^2}{4a}\ab(k^2 - \frac{4ixa}{\gamma^2}k - \frac{4x^2a^2}{\gamma^4}) - \frac{x^2a}{\gamma^2}} \odif{k} \\
+        &= \frac{A}{2\sqrt{a\pi}}\,e^{-ax^2/\gamma^2} \infint e^{-\frac{\gamma^2}{4a}\ab(k-\frac{2ixa}{\gamma^2})^2} \odif{k} \\
+        % &= \frac{A}{\cancel{2\sqrt{a\pi}}}\,e^{-ax^2/\gamma^2}\,\frac{\cancel{2\sqrt{a\pi}}}{\gamma} \\
+        &= \boxed{\ab(\frac{2a}{\pi})^{1/4}\,\frac{1}{\gamma}\,e^{-ax^2/\gamma^2}}
+    \end{align*}
+
+    (c) จาก b จะได้ว่า
+    \[
+        \abs{\Psi(x, t)}^2 = \Psi^*\Psi = \ab(\ab(\frac{2a}{\pi})^{1/4}\,\frac{1}{\gamma^*}\,e^{-ax^2/(\gamma^*)^2})\ab(\ab(\frac{2a}{\pi})^{1/4}\,\frac{1}{\gamma}\,e^{-ax^2/\gamma^2}) = \boxed{\sqrt{\frac{2}{\pi}}\,we^{-2w^2x^2}}
+    \]
+    และเมื่อ $t\to\infty$ จะได้ว่า $w$ ลดลงเรื่อย ๆ ทำให้กราฟ Gaussian curve แบนลงเรื่อย ๆ
+
+    (d) หา $\avg{x}$:
+    \[
+        \avg{x} = \infint \Psi^*\,x\,\Psi \odif{x} = \sqrt{\frac{2}{\pi}}\,w \infint xe^{-2w^2x^2} \odif{x} = \boxed{0}
+    \]
+    หา $\avg{x^2}$:
+    \[
+        \avg{x^2} = \infint \Psi^*\,x^2\,\Psi \odif{x} = \sqrt{\frac{2}{\pi}}\,w \infint x^2e^{-2w^2x^2} \odif{x} = \sqrt{\frac{2}{\pi}}\,w\,\sqrt{\frac{\pi}{2}}\frac{1}{4w^3} = \frac{1}{4w^2}
+    \]
+    หา $\avg{p}$:
+    \[
+        \avg{p} = m\odv{\avg{x}}{t} = \boxed{0}
+    \]
+    ก่อนที่จะไปหา $\avg{p^2}$ เรามาหาอนุพันธ์เทียบ $x$ ของ $\Psi$ กันก่อน: 
+    \[
+        \pdv{\Psi}{x} = \ab(\frac{-2a}{\gamma^2})\,x\cdot\Psi
+    \]
+    จะได้ว่า
+    \[
+        \pdv[2]{\Psi}{x} = \ab(\frac{-2a}{\gamma^2})\ab(\pdv{}{x}x\cdot\Psi) = \ab(-\frac{2a}{\gamma^2} + \frac{4a^2}{\gamma^4}\,x^2)\,\Psi
+    \]
+    หา $\avg{p^2}$:
+    \begin{align*}
+        \avg{p^2} &= \infint \Psi^*\,\ab(-\hbar^2\pdv[2]{}{x})\Psi \odif{x} \\
+        &= -\hbar^2 \infint \ab(-\frac{2a}{\gamma^2} + \frac{4a^2}{\gamma^4}\,x^2)\,\abs{\Psi}^2 \odif{x} \\
+        &= -\hbar^2 \ab[-\frac{2a}{\gamma^2} + \frac{4a^2}{\gamma^4}\cdot\avg{x^2}] = -\hbar^2 \ab[-\frac{2a}{\gamma^2} + \frac{4a^2}{\gamma^4}\cdot\frac{1}{4w^2}] \\
+        &= \hbar^2 a \ab[\frac{2}{\gamma^2} - \frac{a}{\gamma^4}\cdot\frac{(\gamma^*)^2\gamma^2}{a}] = \hbar^2 a \ab(\frac{\cancel{2 - (\gamma^*)^2}}{\cancel{\gamma^2}}) \\
+        &= \hbar^2 a
+    \end{align*}
+    ดังนั้น $\boxed{\sigma_x = (1/2w)}$ และ $\boxed{\sigma_p = \sqrt{a}\,\hbar}$
+
+    (e) จะได้ว่า
+    \[
+        \Delta x\,\Delta p = \sigma_x\sigma_p = \frac{\sqrt{a}\,\hbar}{2w} \geq \frac{\hbar}{2}
+    \]
+    จริง และเข้าใกล้ความเป็นสมการที่สุดเมื่อ $t = 0$ (เท่ากับ $\hbar/2$ พอดี)
 \end{soln}
+
+\section{ศักย์ฟังก์ชันเดลตา}

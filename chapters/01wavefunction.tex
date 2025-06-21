@@ -61,6 +61,15 @@
     (เพราะ $\Psi$ ที่ $\infty$ ต้องเป็น $0$ มิฉะนั้นจะไม่สามารถ normalize ได้) ตามต้องการ
 \end{proof}
 
+เราจะเรียกพจน์ 
+\begin{eqnobox}
+    J(x,t) \equiv \frac{i\hbar}{2m}\ab(\Psi^*\pdv{\Psi}{x} - \pdv{\Psi^*}{x}\Psi)
+\end{eqnobox}
+ว่าเป็น\emph{กระแสความน่าจะเป็น} (\emph{probability current}) เพราะ
+\[
+    \odv{P(a\leq x\leq b)}{t} = J(a, t) - J(b, t)
+\]
+
 \subsection{โมเมนตัมและโอเปเรเตอร์}
 
 เมื่อเวลาผ่านไป ฟังก์ชันคลื่น $\Psi$ จะวิวัฒน์ไปเรื่อย ๆ ตามสมการ (\ref{1schrodinger}) ก็จะทำให้ $\avg{x}$ เปลี่ยนไปตามเวลาด้วย เราจึงอาจจะอยากทราบ ``ความเร็ว'' ของอนุภาคนี้:
